@@ -2,7 +2,7 @@
 
 import { ThemeProvider } from '@mui/material';
 import { CacheProvider } from '@emotion/react';
-import createEmotionCache from '@mui/material-nextjs/v13-pagesRouter/createCache'; // Or v14
+import createEmotionCache from '@mui/material-nextjs/v13-pagesRouter/createCache';
 import { theme } from '@/theme/theme';
 import React from "react";
 
