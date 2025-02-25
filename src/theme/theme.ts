@@ -19,15 +19,32 @@ export const theme = createTheme({
             paper: '#B4CCA9',
         },
     },
+    typography: {
+        fontFamily: [
+            'Roboto',
+            'sans-serif',
+        ].join(','),
+        h1: {
+            fontSize: '4rem',
+            fontWeight: 700,
+            lineHeight: 1.2,
+            letterSpacing: '-0.02em'
+        },
+        h2: {
+            fontSize: '2rem',
+            fontWeight: 400,
+            lineHeight: 1.5,
+            letterSpacing: '-0.01em'
+        }
+
+    },
     components: {
         MuiButton: {
             styleOverrides: {
                 root: {
-                    backgroundColor: '#B4CCA9',
-                    color: '#FFFFFF',
-                    '&:hover': {
-                        backgroundColor: '#A0B398',
-                    },
+                    padding: '12px 24px',
+                    fontSize: '1rem',
+                    borderRadius: '8px',
                 },
             },
         },
