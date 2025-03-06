@@ -23,7 +23,7 @@ function HeroProps(props: HeroPageProps){
     const {
         title,
         subtitle,
-        imageUrl,
+        // imageUrl,
         primaryButtonText,
         secondaryButtonText
     } = props
@@ -31,18 +31,8 @@ function HeroProps(props: HeroPageProps){
     const theme = useTheme();
 
     return(
-        <Stack direction='column' justifyContent='center' alignItems='center'>
+        <Stack direction='column' justifyContent='center' alignItems='center' gap={5}>
             <List>
-                <ListItemAvatar sx={{ display:'flex', justifyContent: 'center'}}>
-                    <Avatar
-                        sx={{
-                            height: '500px',
-                            width: '500px'
-                        }}
-                        alt='company logo'
-                        src={imageUrl}
-                    />
-                </ListItemAvatar>
                 <ListItemText sx={{textAlign: 'center'}}>
                     <Typography variant='h1'>
                         {title}
@@ -54,10 +44,11 @@ function HeroProps(props: HeroPageProps){
                     </Typography>
                 </ListItemText>
             </List>
-            <Stack flexDirection='row' gap={1}>
+            <Stack flexDirection='row' gap={3}>
                 <Button
                     variant="contained"
                     sx={{
+                        minWidth: 200,
                         bgcolor: theme.palette.background.paper,
                         color: theme.palette.primary.contrastText,
                         fontWeight: 700,
@@ -71,6 +62,7 @@ function HeroProps(props: HeroPageProps){
                 <Button
                     variant='outlined'
                     sx={{
+                        minWidth: 200,
                         border: `1px solid #b4b4b4`,
                         bgcolor: 'transparent',
                         color: theme.palette.primary.main,
