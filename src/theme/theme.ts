@@ -20,32 +20,57 @@ export const theme = createTheme({
         },
     },
     typography: {
-        fontFamily: [
-            'Roboto',
-            'sans-serif',
-        ].join(','),
         h1: {
-            fontSize: '4rem',
-            fontWeight: 700,
-            lineHeight: 1.2,
-            letterSpacing: '-0.02em'
+            fontSize: '5rem',
+            letterSpacing: '0.05em',
+            fontWeight: 700
         },
         h2: {
-            fontSize: '2rem',
-            fontWeight: 400,
-            lineHeight: 1.5,
-            letterSpacing: '-0.01em'
+            fontSize: '3rem',
+            fontWeight: 700
+        },
+        subtitle1: {
+            fontSize: '1rem',
+            fontWeight: 400
+        },
+        subtitle2: {
+            fontSize: '0.75rem',
+            fontWeight: 400
         }
 
     },
     components: {
         MuiButton: {
+            variants: [
+                {
+                    props: { variant: 'contained' },
+                    style: {
+                        backgroundColor: '#71786D',
+                        '&:hover': {
+                            backgroundColor: '#7F877B',
+                        },
+                    }
+                },
+                {
+                    props: { variant: 'outlined'},
+                    style: {
+                        border: `1px solid #b4b4b4`,
+                        backgroundColor: 'transparent',
+                        color: '#363636',
+                    }
+                }
+            ],
             styleOverrides: {
                 root: {
                     padding: '12px 24px',
                     fontSize: '1rem',
                     borderRadius: '8px',
                 },
+            },
+        },
+        MuiTypography: {
+            defaultProps: {
+                color: '#363636',
             },
         },
     },
