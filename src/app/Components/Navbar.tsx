@@ -1,3 +1,4 @@
+import { useTheme } from '@emotion/react';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
 	AppBar,
@@ -13,27 +14,21 @@ import {
 	Stack,
 	Toolbar,
 	Typography,
+	useMediaQuery,
 } from '@mui/material';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import LogoImage from '../../assets/images/mainLogo.png';
 
 export const Navbar = () => {
 	const [open, setOpen] = useState(false);
-	const [isMobile, setIsMobile] = useState(false);
+	const theme = useTheme();
 
 	const toggleDrawer = (open: boolean) => () => {
 		setOpen(open);
 	};
 
-	useEffect(() => {
-		const checkScreenSize = () => setIsMobile(window.innerWidth < 768);
-
-		checkScreenSize();
-		window.addEventListener('resize', checkScreenSize);
-
-		return () => window.removeEventListener('resize', checkScreenSize);
-	}, []);
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
 	const linkItems = ['Inbox', 'Starred', 'Send email', 'Drafts'];
 
