@@ -9,11 +9,11 @@ import type React from 'react';
 const emotionCache = createEmotionCache();
 
 export default function ClientWrapper({
-	children,
+  children,
 }: { children: React.ReactNode }) {
-	return (
-		<CacheProvider value={emotionCache}>
-			<ThemeProvider theme={theme}>{children}</ThemeProvider>
-		</CacheProvider>
-	);
+  return (
+    <CacheProvider value={emotionCache}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </CacheProvider>
+  );
 }
