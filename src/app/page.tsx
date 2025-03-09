@@ -1,13 +1,7 @@
-import {CssBaseline} from "@mui/material";
-import React from "react";
-import ClientWrapper from "@/app/ClientWrapper";
-import HomePage from "@/pages/Home";
+'use client';
+
+import HomePage from '@/pages/HomePage';
 
 export default function Home() {
-  return (
-      <ClientWrapper>
-          <CssBaseline />
-          <HomePage />
-      </ClientWrapper>
-  );
+  return <HomePage />;
 }
