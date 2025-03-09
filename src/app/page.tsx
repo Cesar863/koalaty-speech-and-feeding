@@ -1,20 +1,13 @@
-import {
-    Container,
-    CssBaseline, 
-    Paper
-} from "@mui/material";
-import React from "react";
-import ClientWrapper from "@/app/ClientWrapper";
+'use client';
+import ClientWrapper from '@/app/ClientWrapper';
+import { CssBaseline } from '@mui/material';
+import { Navbar } from './Components/Navbar';
 
 export default function Home() {
   return (
-      <ClientWrapper>
-          <CssBaseline />
-          <Container>
-              <Paper sx={{textAlign: 'center'}}>
-                  Site under construction...
-              </Paper>
-          </Container>
-      </ClientWrapper>
+    <ClientWrapper>
+      <CssBaseline />
+      <Navbar />
+    </ClientWrapper>
   );
 }
