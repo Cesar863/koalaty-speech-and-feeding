@@ -1,4 +1,3 @@
-import { useTheme } from '@emotion/react';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
@@ -15,6 +14,7 @@ import {
   Toolbar,
   Typography,
   useMediaQuery,
+  useTheme,
 } from '@mui/material';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -28,7 +28,7 @@ export const Navbar = () => {
     setOpen(open);
   };
 
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const linkItems = ['Inbox', 'Starred', 'Send email', 'Drafts'];
 
@@ -53,6 +53,7 @@ export const Navbar = () => {
             width="100%"
             direction="row"
             textAlign={isMobile ? 'right' : 'left'}
+            spacing={1}
           >
             <Grid2 size={{ xs: 7, md: 4 }}>
               <IconButton size="large" edge="start" color="inherit">
@@ -64,14 +65,17 @@ export const Navbar = () => {
                 />
               </IconButton>
             </Grid2>
-            {!isMobile ? (
+            {!isMobile && (
               <Grid2 size={4} alignContent="center">
-                <Typography variant="h6" textAlign="center">
+                <Typography
+                  variant="h6"
+                  textAlign="center"
+                  color="white"
+                  px={2}
+                >
                   Koalaty Speech and Feeding Therapy Services
                 </Typography>
               </Grid2>
-            ) : (
-              <></>
             )}
             <Grid2
               size={{ xs: 5, md: 4 }}
@@ -85,9 +89,12 @@ export const Navbar = () => {
                 <>
                   <Button
                     onClick={toggleDrawer(true)}
-                    sx={{ background: 'transparent' }}
+                    sx={{
+                      background: 'transparent',
+                      color: theme.palette.background.default,
+                    }}
                   >
-                    <MenuIcon />
+                    <MenuIcon sx={{ color: 'white' }} />
                   </Button>
                   <Drawer
                     anchor="right"
@@ -102,7 +109,11 @@ export const Navbar = () => {
               ) : (
                 <Stack direction="row" width="100%" justifyContent="flex-end">
                   {linkItems.map((text) => (
-                    <Typography key={text} padding={2}>
+                    <Typography
+                      key={text}
+                      padding={2}
+                      color={theme.palette.background.default}
+                    >
                       {text}
                     </Typography>
                   ))}
