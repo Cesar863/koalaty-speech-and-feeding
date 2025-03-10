@@ -1,9 +1,9 @@
 'use client';
 
 import ClientWrapper from '@/app/ClientWrapper';
+import { Navbar } from '@/components/Navbar/Navbar';
 import { Box, CssBaseline, useMediaQuery, useTheme } from '@mui/material';
 import type React from 'react';
-import Navbar from '../components/Navbar/Navbar';
 
 export default function RootLayout({
   children,
@@ -11,7 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <html lang="en">
@@ -19,11 +19,7 @@ export default function RootLayout({
         <ClientWrapper>
           <CssBaseline />
           <Navbar />
-          <Box
-            sx={{
-              height: isMobile ? 'calc(100vh - 64px)' : 'calc(100vh - 80px)',
-            }}
-          >
+          <Box height={isMobile ? 'calc(100vh - 64px)' : 'calc(100vh - 80px)'}>
             {children}
           </Box>
         </ClientWrapper>

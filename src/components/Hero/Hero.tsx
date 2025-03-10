@@ -20,7 +20,7 @@ function Hero() {
   const secondaryButtonHref = '/';
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Box
@@ -41,14 +41,14 @@ function Hero() {
         spacing={5}
         sx={{ p: 5 }}
       >
-        <Grid size={{ xs: 12, sm: 10, md: 8 }}>
+        <Grid size={{ xs: 12, md: 8 }}>
           <PageHeader
             bubbleText={bubbleText}
             title={title}
             subtitle={subtitle}
           />
         </Grid>
-        <Grid size={{ xs: 12, sm: 10, md: 8 }}>
+        <Grid size={{ xs: 12, md: 8 }}>
           <Stack
             justifyContent="center"
             alignItems="center"

@@ -17,7 +17,7 @@ function PageHeader(props: PageHeaderProps) {
   const { bubbleText, title, subtitle } = props;
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Stack alignItems="center" gap={isMobile ? 2 : 3}>

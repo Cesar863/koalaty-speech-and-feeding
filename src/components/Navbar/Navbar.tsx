@@ -20,7 +20,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import LogoImage from '../../assets/images/mainLogo.png';
 
-function Navbar() {
+export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const theme = useTheme();
 
@@ -89,7 +89,10 @@ function Navbar() {
                 <>
                   <Button
                     onClick={toggleDrawer(true)}
-                    sx={{ background: 'transparent', color: 'white' }}
+                    sx={{
+                      background: 'transparent',
+                      color: theme.palette.background.default,
+                    }}
                   >
                     <MenuIcon sx={{ color: 'white' }} />
                   </Button>
@@ -106,7 +109,11 @@ function Navbar() {
               ) : (
                 <Stack direction="row" width="100%" justifyContent="flex-end">
                   {linkItems.map((text) => (
-                    <Typography key={text} padding={2} color="white">
+                    <Typography
+                      key={text}
+                      padding={2}
+                      color={theme.palette.background.default}
+                    >
                       {text}
                     </Typography>
                   ))}
@@ -118,6 +125,4 @@ function Navbar() {
       </AppBar>
     </Box>
   );
-}
-
-export default Navbar;
+};
