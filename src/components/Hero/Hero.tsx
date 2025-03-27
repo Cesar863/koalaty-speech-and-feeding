@@ -7,9 +7,13 @@ import {
   useTheme,
 } from '@mui/material';
 import Link from 'next/link';
+import React from 'react';
+import { ContactDialog } from '../AlertDialog/ContactDialog';
 import PageHeader from '../PageHeader/PageHeader';
 
 function Hero() {
+  const [isOpen, setIsOpen] = React.useState(false);
+
   const bubbleText = 'Introducing Something Amazing';
   const title = 'Lorem ipsum odor amet';
   const subtitle =
@@ -78,6 +82,7 @@ function Hero() {
                   minWidth: 200,
                   px: 3,
                 }}
+                onClick={() => setIsOpen(true)}
               >
                 {secondaryButtonText}
               </Button>
@@ -85,6 +90,13 @@ function Hero() {
           </Stack>
         </Grid>
       </Grid>
+      {isOpen && (
+        <ContactDialog
+          open={isOpen}
+          isMobile={isMobile}
+          onClose={() => setIsOpen(false)}
+        />
+      )}
     </Box>
   );
 }
