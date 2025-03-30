@@ -57,7 +57,7 @@ function About() {
         <Grid size={{ md: 12 }}>
           <PageHeader
             h1Props={{ fontSize: isMobile ? '2rem' : '3rem' }}
-            textAlign={isMobile ? 'center' : 'start'}
+            textAlign="start"
             title="Charity Bobo"
             subtitle="Owner, Speech Language Pathologist M.A., CCC-SLP"
             description={description}
