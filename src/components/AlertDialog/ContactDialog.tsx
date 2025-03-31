@@ -18,6 +18,7 @@ import {
   formFields,
   isEveryErrorCleared,
   isEveryFieldFilled,
+  nameRegex,
   phoneNumberMask,
   validateField,
 } from './dialogUtils';
@@ -42,17 +43,23 @@ export const ContactDialog = (props: SimpleDialogProps) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    if (name === 'phoneNumber') {
+      const formattedPhone = phoneNumberMask(e.target.value);
+      return setFormValues((prev) => ({
+        ...prev,
+        phoneNumber: formattedPhone,
+      }));
+    }
+    if (name === 'name') {
+      const formattedName = nameRegex(e.target.value);
+      return setFormValues((prev) => ({ ...prev, name: formattedName }));
+    }
     setFormValues((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     validateField(name, value, setFormErrors);
-  };
-
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const formattedPhone = phoneNumberMask(e.target.value);
-    setFormValues((prev) => ({ ...prev, phoneNumber: formattedPhone }));
   };
 
   return (
@@ -100,7 +107,7 @@ export const ContactDialog = (props: SimpleDialogProps) => {
                 label="Phone Number"
                 name="phoneNumber"
                 value={formValues.phoneNumber}
-                onChange={handlePhoneChange}
+                onChange={handleChange}
                 onBlur={handleBlur}
                 error={!!formErrors.phoneNumber}
                 helperText={formErrors.phoneNumber}
@@ -127,7 +134,16 @@ export const ContactDialog = (props: SimpleDialogProps) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 error={!!formErrors.body}
-                helperText={formErrors.body}
+                helperText={
+                  formErrors.body
+                    ? formErrors.body
+                    : `${formValues.body.length}/300`
+                }
+                slotProps={{
+                  htmlInput: {
+                    maxLength: 300,
+                  },
+                }}
               />
             </Stack>
           </DialogContent>
