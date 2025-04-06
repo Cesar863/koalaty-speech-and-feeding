@@ -3,13 +3,16 @@ import {
   AppBar,
   Box,
   Button,
+  Container,
+  Divider,
   Drawer,
-  Grid2,
+  Grid2 as Grid,
   IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
+  MenuItem,
   Stack,
   Toolbar,
   Typography,
@@ -30,13 +33,13 @@ export const Navbar = () => {
 
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-  const linkItems = ['Inbox', 'Starred', 'Send email', 'Drafts'];
+  const linkItems = ['About', 'Contact', 'Services', 'Resources'];
 
   const MobileDrawerList = (
     <List>
       {linkItems.map((text) => (
         <ListItem key={text} disablePadding>
-          <ListItemButton>
+          <ListItemButton sx={{ textAlign: 'right' }}>
             <ListItemText primary={text} />
           </ListItemButton>
         </ListItem>
@@ -47,38 +50,36 @@ export const Navbar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar>
-          <Grid2
-            container
-            width="100%"
-            direction="row"
-            textAlign={isMobile ? 'right' : 'left'}
-            spacing={1}
-          >
-            <Grid2 size={{ xs: 7, md: 4 }}>
-              <IconButton size="large" edge="start" color="inherit">
-                <Image
-                  src={LogoImage}
-                  height={isMobile ? 40 : 56}
-                  width={isMobile ? 40 : 56}
-                  alt="Logo for Koalaty Speech and Feeding."
-                />
-              </IconButton>
-            </Grid2>
+        <Toolbar disableGutters={isMobile}>
+          <Grid container width="100%" direction="row" spacing={1}>
             {!isMobile && (
-              <Grid2 size={4} alignContent="center">
-                <Typography
-                  variant="h6"
-                  textAlign="center"
-                  color="white"
-                  px={2}
-                >
-                  Koalaty Speech and Feeding Therapy Services
-                </Typography>
-              </Grid2>
+              <Grid size={{ md: 4 }}>
+                <IconButton size="large" edge="start" color="inherit">
+                  <Image
+                    src={LogoImage}
+                    height={56}
+                    width={56}
+                    alt="Logo for Koalaty Speech and Feeding."
+                  />
+                </IconButton>
+              </Grid>
             )}
-            <Grid2
-              size={{ xs: 5, md: 4 }}
+
+            <Grid size={{ xs: 11, md: 4 }} alignContent={'center'}>
+              <Typography
+                variant={isMobile ? 'inherit' : 'h6'}
+                textAlign={isMobile ? 'left' : 'center'}
+                color={theme.palette.background.default}
+                px={2}
+              >
+                {`Koalaty Speech and Feeding ${
+                  isMobile ? '' : 'Therapy Services'
+                }`}
+              </Typography>
+            </Grid>
+
+            <Grid
+              size={{ xs: 1, md: 4 }}
               textAlign="right"
               alignItems="center"
               flexGrow={1}
@@ -101,26 +102,42 @@ export const Navbar = () => {
                     open={open}
                     onClose={toggleDrawer(false)}
                   >
-                    <Box sx={{ width: 215 }} role="presentation">
-                      {MobileDrawerList}
+                    <Box sx={{ width: 150 }} role="presentation">
+                      <Stack spacing={1}>
+                        <Container sx={{ textAlign: 'center', pt: 2 }}>
+                          <Image
+                            src={LogoImage}
+                            height={56}
+                            width={56}
+                            alt="Logo for Koalaty Speech and Feeding."
+                          />
+                        </Container>
+
+                        <Divider />
+                        {MobileDrawerList}
+                      </Stack>
                     </Box>
                   </Drawer>
                 </>
               ) : (
-                <Stack direction="row" width="100%" justifyContent="flex-end">
+                <List
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'flex-end',
+                    width: '100%',
+                    gap: '4px',
+                  }}
+                >
                   {linkItems.map((text) => (
-                    <Typography
-                      key={text}
-                      padding={2}
-                      color={theme.palette.background.default}
-                    >
+                    <MenuItem sx={{ p: 1 }} key={text} disableGutters>
                       {text}
-                    </Typography>
+                    </MenuItem>
                   ))}
-                </Stack>
+                </List>
               )}
-            </Grid2>
-          </Grid2>
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
     </Box>
