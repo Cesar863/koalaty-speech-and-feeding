@@ -12,6 +12,7 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  MenuItem,
   Stack,
   Toolbar,
   Typography,
@@ -32,7 +33,7 @@ export const Navbar = () => {
 
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-  const linkItems = ['About', 'Contact us', 'Services', 'Resources'];
+  const linkItems = ['About', 'Contact', 'Services', 'Resources'];
 
   const MobileDrawerList = (
     <List>
@@ -68,7 +69,7 @@ export const Navbar = () => {
               <Typography
                 variant={isMobile ? 'inherit' : 'h6'}
                 textAlign={isMobile ? 'left' : 'center'}
-                color="white"
+                color={theme.palette.background.default}
                 px={2}
               >
                 {`Koalaty Speech and Feeding ${
@@ -119,17 +120,21 @@ export const Navbar = () => {
                   </Drawer>
                 </>
               ) : (
-                <Stack direction="row" width="100%" justifyContent="flex-end">
+                <List
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'flex-end',
+                    width: '100%',
+                    gap: '4px',
+                  }}
+                >
                   {linkItems.map((text) => (
-                    <Typography
-                      key={text}
-                      padding={2}
-                      color={theme.palette.background.default}
-                    >
+                    <MenuItem sx={{ p: 1 }} key={text} disableGutters>
                       {text}
-                    </Typography>
+                    </MenuItem>
                   ))}
-                </Stack>
+                </List>
               )}
             </Grid>
           </Grid>
