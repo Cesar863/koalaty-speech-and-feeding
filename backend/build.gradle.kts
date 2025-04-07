@@ -1,31 +1,30 @@
-val kotlin_version: String by project
-val logback_version: String by project
-
 plugins {
-    kotlin("jvm") version "2.1.20"
-    id("io.ktor.plugin") version "3.1.1"
+    kotlin("jvm") version "1.9.22"
+    kotlin("plugin.serialization") version "1.9.22"
+    application
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
-group = "com.koalatyspeechandfeeding"
-version = "0.0.1"
-
-application {
-    mainClass = "io.ktor.server.netty.EngineMain"
-
-    val isDevelopment: Boolean = project.ext.has("development")
-    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
-}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-core-jvm")
-    implementation("io.ktor:ktor-server-netty")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("io.ktor:ktor-server-core")
-    implementation("io.ktor:ktor-server-config-yaml")
-    testImplementation("io.ktor:ktor-server-test-host")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+    implementation("com.amazonaws:aws-lambda-java-core:1.2.3")
+    implementation("software.amazon.awssdk:ses:2.25.39")
+}
+
+application {
+    mainClass.set("com.koalatyspeechandfeeding.SimpleEmailLambdaHandler")
+}
+
+tasks {
+    shadowJar {
+        archiveBaseName.set("email-lambda")
+        archiveClassifier.set("")
+        archiveVersion.set("")
+        mergeServiceFiles()
+    }
 }

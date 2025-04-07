@@ -61,3 +61,16 @@ export const phoneNumberMask = (value: string) => {
 
   return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
 };
+
+export const apiResponse = async (
+  apiUrl: string,
+  method: string,
+  data: object,
+) =>
+  await fetch(apiUrl, {
+    method: method,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });

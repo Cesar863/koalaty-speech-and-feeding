@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 import {
+  apiResponse,
   formFields,
   isEveryErrorCleared,
   isEveryFieldFilled,
@@ -60,6 +61,22 @@ export const ContactDialog = (props: SimpleDialogProps) => {
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     validateField(name, value, setFormErrors);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const response = await apiResponse(
+        'https://j4iwz3yhu8.execute-api.us-east-1.amazonaws.com/contact',
+        'POST',
+        formValues,
+      );
+
+      await response.json();
+      onClose();
+    } catch (err) {
+      console.error('Error submitting contact form:', err);
+      //TODO: add error handling
+    }
   };
 
   return (
@@ -152,7 +169,7 @@ export const ContactDialog = (props: SimpleDialogProps) => {
           <Divider />
           <Box sx={{ justifyContent: 'center', display: 'flex' }}>
             <Divider />
-            <Button onClick={onClose} fullWidth disabled={!isFormValid}>
+            <Button onClick={handleSubmit} fullWidth disabled={!isFormValid}>
               Submit
             </Button>
           </Box>
