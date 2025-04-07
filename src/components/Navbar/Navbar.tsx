@@ -49,7 +49,7 @@ export const Navbar = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar disableGutters={isMobile}>
           <Grid container width="100%" direction="row" spacing={1}>
             {!isMobile && (
