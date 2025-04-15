@@ -1,4 +1,4 @@
-import ItemCard from '@/components/Services/ItemCard';
+import ServiceCard from '@/components/Services/ItemCard';
 import {
   Box,
   Grid2 as Grid,
@@ -79,7 +79,7 @@ function About() {
       >
         {servicesData.map((service) => (
           <Grid key={service.title} size={{ xs: 12, md: 6, xl: 3 }}>
-            <ItemCard
+            <ServiceCard
               title={service.title}
               description={service.description}
               imageUrl={service.imageUrl}
