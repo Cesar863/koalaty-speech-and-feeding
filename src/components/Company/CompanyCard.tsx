@@ -4,7 +4,6 @@ import {
   CardMedia,
   Chip,
   Typography,
-  useMediaQuery,
   useTheme,
 } from '@mui/material';
 import Image from 'next/image';
@@ -12,7 +11,7 @@ import Image from 'next/image';
 interface CompanyCardProps {
   companyName: string;
   tagline: string;
-  services: string[];
+  services: Array<string>;
   logoSrc: string;
   logoAlt?: string;
 }
@@ -20,7 +19,6 @@ interface CompanyCardProps {
 function CompanyCard(props: CompanyCardProps) {
   const { companyName, tagline, services, logoSrc, logoAlt } = props;
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Card
@@ -32,15 +30,13 @@ function CompanyCard(props: CompanyCardProps) {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        maxWidth: '75%',
+        gap: 1,
         p: 5,
-        textAlign: 'center',
       }}
     >
       <CardMedia
         sx={{
-          p: 1,
-          mb: 2,
+          p: 3,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -49,23 +45,24 @@ function CompanyCard(props: CompanyCardProps) {
         <Image
           src={logoSrc}
           alt={logoAlt || companyName}
-          width={125}
-          height={125}
+          width={150}
+          height={150}
         />
       </CardMedia>
-      <Typography
-        variant="h5"
-        component="div"
-        fontWeight="bold"
-        mb={1}
-        sx={{ wordBreak: 'break-word' }}
-      >
+      <Typography variant="h5" component="div" fontWeight="bold" mb={1}>
         {companyName}
       </Typography>
       <Typography variant="subtitle2" color="text.secondary" mb={2}>
         {tagline}
       </Typography>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+          gap: 2,
+        }}
+      >
         {services.map((service) => (
           <Chip
             key={service}
