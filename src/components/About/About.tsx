@@ -24,24 +24,34 @@ function About() {
     <Box
       sx={{
         display: 'flex',
-        pl: isMobile ? 0 : 3,
-        justifyContent: isMobile ? 'center' : 'flex-start',
+        flexDirection: 'column',
+        justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '100%',
+        minHeight: '100vh',
+        padding: 2,
       }}
     >
       <Grid
         container
         justifyContent="center"
-        alignItems="center"
-        spacing={5}
-        sx={{ p: 2 }}
+        alignItems="flex-start"
+        spacing={isMobile ? 3 : 5}
+        sx={{
+          maxWidth: 'lg',
+          width: '100%',
+        }}
       >
-        <Grid size={{ md: 12 }} display="flex" justifyContent="center">
+        <Grid
+          size={{ xs: 12, sm: 6, md: 4 }}
+          display="flex"
+          justifyContent="center"
+          alignItems="stretch"
+        >
           <Card
             sx={{
               bgcolor: theme.palette.background.default,
-              maxWidth: '350px',
+              width: '100%',
+              maxWidth: isMobile ? 'none' : '350px',
               border: `16px solid ${theme.palette.background.default}`,
               borderRadius: '16px',
             }}
@@ -49,12 +59,16 @@ function About() {
             <CardMedia
               component="img"
               src="../../headshot.JPG"
-              sx={{ width: '100%', borderRadius: '16px' }}
+              sx={{
+                width: '100%',
+                borderRadius: '16px',
+                objectFit: 'cover',
+              }}
               alt="headshot"
             />
           </Card>
         </Grid>
-        <Grid size={{ md: 12 }}>
+        <Grid size={{ xs: 12, md: 8 }}>
           <PageHeader
             h1Props={{ fontSize: isMobile ? '2rem' : '3rem' }}
             textAlign="start"
@@ -62,21 +76,23 @@ function About() {
             subtitle="Owner, Speech Language Pathologist M.A., CCC-SLP"
             description={description}
           />
-        </Grid>
-        <Grid size={{ xs: 12, md: 6 }}>
-          <ItemSlot icon={EmailIcon} text="janedoe@example.com" />
-        </Grid>
-        <Grid size={{ xs: 12, md: 6 }}>
-          <ItemSlot icon={LocationOnIcon} text="Lakeland, Florida" />
-        </Grid>
-        <Grid size={{ xs: 12, md: 6 }}>
-          <ItemSlot icon={PersonIcon} text="Speech Language Pathologist" />
-        </Grid>
-        <Grid size={{ xs: 12, md: 6 }}>
-          <ItemSlot
-            icon={SchoolIcon}
-            text="Master's degree, Speech-Language Pathology/Pathologist"
-          />
+          <Grid container spacing={3} mt={3}>
+            <Grid size={{ xs: 12, md: 6 }} mb={2}>
+              <ItemSlot icon={EmailIcon} text="janedoe@example.com" />
+            </Grid>
+            <Grid size={{ xs: 12, md: 6 }} mb={2}>
+              <ItemSlot icon={LocationOnIcon} text="Lakeland, Florida" />
+            </Grid>
+            <Grid size={{ xs: 12, md: 6 }} mb={2}>
+              <ItemSlot icon={PersonIcon} text="Speech Language Pathologist" />
+            </Grid>
+            <Grid size={{ xs: 12, md: 6 }} mb={2}>
+              <ItemSlot
+                icon={SchoolIcon}
+                text="Master's degree, Speech-Language Pathology/Pathologist"
+              />
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Box>
