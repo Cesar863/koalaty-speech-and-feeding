@@ -27,7 +27,7 @@ function About() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '100vh',
+        minHeight: isMobile ? '100vh' : '75%',
         padding: 2,
       }}
     >
@@ -37,7 +37,7 @@ function About() {
         alignItems="flex-start"
         spacing={isMobile ? 3 : 5}
         sx={{
-          maxWidth: 'lg',
+          maxWidth: 'xl',
           width: '100%',
         }}
       >
@@ -45,7 +45,6 @@ function About() {
           size={{ xs: 12, sm: 6, md: 4 }}
           display="flex"
           justifyContent="center"
-          alignItems="stretch"
         >
           <Card
             sx={{

@@ -7,9 +7,9 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <About />
-      <Company />
       <Services />
+      <Company />
+      <About />
     </>
   );
 }

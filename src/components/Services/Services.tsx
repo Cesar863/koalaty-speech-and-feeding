@@ -54,9 +54,9 @@ function About() {
         pl: isMobile ? 0 : theme.spacing(3),
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '100%',
         width: '100%',
         paddingY: theme.spacing(8),
+        minHeight: isMobile ? '100vh' : '75%',
       }}
     >
       <Typography

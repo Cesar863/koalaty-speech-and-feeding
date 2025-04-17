@@ -4,6 +4,7 @@ import {
   CardMedia,
   Chip,
   Typography,
+  useMediaQuery,
   useTheme,
 } from '@mui/material';
 import Image from 'next/image';
@@ -19,6 +20,7 @@ interface CompanyCardProps {
 function CompanyCard(props: CompanyCardProps) {
   const { companyName, tagline, services, logoSrc, logoAlt } = props;
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Card
@@ -30,6 +32,9 @@ function CompanyCard(props: CompanyCardProps) {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        width: '100%',
+        maxWidth: isMobile ? 'none' : '410px',
+
         gap: 1,
         p: 5,
       }}

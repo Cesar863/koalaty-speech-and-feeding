@@ -1,4 +1,5 @@
 import CompanyCard from '@/components/Company/CompanyCard';
+import PageHeader from '@/components/PageHeader/PageHeader';
 import {
   Box,
   Grid2 as Grid,
@@ -18,36 +19,59 @@ function Company() {
     <Box
       sx={{
         display: 'flex',
-        px: isMobile ? 0 : 3,
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '75%',
+        minHeight: isMobile ? '100vh' : '75%',
+        padding: 3,
       }}
     >
       <Grid
         container
         justifyContent="center"
         alignItems="center"
-        spacing={isMobile ? 0 : 5}
+        spacing={isMobile ? 3 : 5}
         sx={{
-          maxWidth: '1300px',
+          maxWidth: 'xl',
+          width: '100%',
+          flexDirection: isMobile ? 'column' : 'row',
         }}
       >
         <Grid
-          size={{ xs: 12, md: 6 }}
-          sx={{ textAlign: isMobile ? 'center' : 'left' }}
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 4,
+          }}
+          display="flex"
+          justifyContent="center"
+          order={isMobile ? 0 : 1}
         >
-          <Typography variant="h2" component="h2" gutterBottom>
-            Koalaty Speech and Feeding
-          </Typography>
-          <Typography variant="h6" color="textSecondary" gutterBottom>
-            Slogan goes here
-          </Typography>
-          <Typography variant="subtitle1" component="p">
-            {loremIpsum}
-          </Typography>
-          <Grid container spacing={2} mt={3}>
-            <Grid size={{ xs: 12, md: 6 }}>
+          <CompanyCard
+            companyName="Koalaty Speech and Feeding"
+            tagline="Slogan goes here"
+            services={['Articulation', 'Language', 'Fluency', 'Voice']}
+            logoSrc="/logo-icon.png"
+            logoAlt="Koalaty Speech and Feeding logo"
+          />
+        </Grid>
+        <Grid
+          size={{
+            xs: 12,
+            md: 8,
+          }}
+          sx={{ textAlign: isMobile ? 'center' : 'left' }}
+          order={isMobile ? 1 : 0}
+        >
+          <PageHeader
+            h1Props={{ fontSize: isMobile ? '2rem' : '3rem' }}
+            textAlign="start"
+            title="Koalaty Speech and Feeding"
+            subtitle="Slogan goes here"
+            description={loremIpsum}
+          />
+          <Grid container spacing={3} mt={3}>
+            <Grid size={{ xs: 12, md: 6 }} mb={2}>
               <Box display="flex" alignItems="center">
                 <Typography variant="subtitle2">Established</Typography>
               </Box>
@@ -55,7 +79,7 @@ function Company() {
                 2021
               </Typography>
             </Grid>
-            <Grid size={{ xs: 12, md: 6 }}>
+            <Grid size={{ xs: 12, md: 6 }} mb={2}>
               <Box display="flex" alignItems="center">
                 <Typography variant="subtitle2">Team</Typography>
               </Box>
@@ -63,7 +87,7 @@ function Company() {
                 Creative Professionals
               </Typography>
             </Grid>
-            <Grid size={{ xs: 12, md: 6 }}>
+            <Grid size={{ xs: 12, md: 6 }} mb={2}>
               <Box display="flex" alignItems="center">
                 <Typography variant="subtitle2">Recognition</Typography>
               </Box>
@@ -71,7 +95,7 @@ function Company() {
                 Award-winning designs
               </Typography>
             </Grid>
-            <Grid size={{ xs: 12, md: 6 }}>
+            <Grid size={{ xs: 12, md: 6 }} mb={2}>
               <Box display="flex" alignItems="center">
                 <Typography variant="subtitle2">Focus</Typography>
               </Box>
@@ -80,15 +104,6 @@ function Company() {
               </Typography>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid size={{ xs: 12, md: 6 }}>
-          <CompanyCard
-            companyName="Koalaty Speech and Feeding"
-            tagline="Slogan goes here"
-            services={['Articulation', 'Language', 'Fluency', 'Voice']}
-            logoSrc="/logo-icon.png"
-            logoAlt="Koalaty Speech and Feeding logo"
-          />
         </Grid>
       </Grid>
     </Box>
