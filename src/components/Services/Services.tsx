@@ -1,4 +1,4 @@
-import ItemCard from '@/components/Services/ItemCard';
+import ServiceCard from '@/components/Services/ServiceCard';
 import {
   Box,
   Grid2 as Grid,
@@ -54,9 +54,9 @@ function About() {
         pl: isMobile ? 0 : theme.spacing(3),
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '100%',
         width: '100%',
         paddingY: theme.spacing(8),
+        minHeight: isMobile ? '100vh' : '75%',
       }}
     >
       <Typography
@@ -79,7 +79,7 @@ function About() {
       >
         {servicesData.map((service) => (
           <Grid key={service.title} size={{ xs: 12, md: 6, xl: 3 }}>
-            <ItemCard
+            <ServiceCard
               title={service.title}
               description={service.description}
               imageUrl={service.imageUrl}

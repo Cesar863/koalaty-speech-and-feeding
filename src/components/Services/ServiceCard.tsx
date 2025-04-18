@@ -7,14 +7,14 @@ import {
   useTheme,
 } from '@mui/material';
 
-interface ItemCardProps {
+interface ServiceCardProps {
   title: string;
   description: string;
   imageUrl: string;
   altText?: string;
 }
 
-function ItemCard(props: ItemCardProps) {
+function ServiceCard(props: ServiceCardProps) {
   const { title, description, imageUrl, altText } = props;
 
   const theme = useTheme();
@@ -55,4 +55,4 @@ function ItemCard(props: ItemCardProps) {
   );
 }
 
-export default ItemCard;
+export default ServiceCard;

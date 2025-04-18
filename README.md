@@ -1,4 +1,4 @@
 # Deployed Prod
-[www.koalatyspeechandfeeding.com](www.koalatyspeechandfeeding.com)
+[koalatyspeechandfeeding.com](https://www.koalatyspeechandfeeding.com/)
 # Deployed Testing
-[testing.koalatyspeechandfeeding.com](testing.koalatyspeechandfeeding.com)
+[testing.koalatyspeechandfeeding.com](https://testing.koalatyspeechandfeeding.com/)
