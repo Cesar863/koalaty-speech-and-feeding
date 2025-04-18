@@ -11,8 +11,8 @@ function Company() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-  const loremIpsum =
-    'Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.';
+  const description =
+    'Koalaty speech and feeding therapy services provides speech, language and feeding services tailored to your family and child’s needs. We focus on child led interactions through play or daily routine interactions to best assist your child to communicate or feel comfortable trying new foods. We also make it a priority that the family also feels comfortable and guided through therapy. We can provide services in the community or in home.';
   const companyData = [
     {
       icon: BusinessCenterIcon,
@@ -89,7 +89,7 @@ function Company() {
             textAlign="start"
             title="Koalaty Speech and Feeding"
             subtitle="Slogan goes here"
-            description={loremIpsum}
+            description={description}
           />
           <Grid container spacing={3} mt={3}>
             {companyData.map((data) => (
