@@ -1,12 +1,11 @@
+import CardSlot from '@/components/Company/CardSlot';
 import CompanyCard from '@/components/Company/CompanyCard';
 import PageHeader from '@/components/PageHeader/PageHeader';
-import {
-  Box,
-  Grid2 as Grid,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import ContentPasteIcon from '@mui/icons-material/ContentPaste';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import GroupsIcon from '@mui/icons-material/Groups';
+import { Box, Grid2 as Grid, useMediaQuery, useTheme } from '@mui/material';
 
 function Company() {
   const theme = useTheme();
@@ -14,6 +13,28 @@ function Company() {
 
   const loremIpsum =
     'Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.';
+  const companyData = [
+    {
+      icon: BusinessCenterIcon,
+      primaryText: 'Established',
+      secondaryText: '2024',
+    },
+    {
+      icon: GroupsIcon,
+      primaryText: 'Team',
+      secondaryText: 'Sample text',
+    },
+    {
+      icon: EmojiEventsIcon,
+      primaryText: 'Accolades',
+      secondaryText: 'Sample text',
+    },
+    {
+      icon: ContentPasteIcon,
+      primaryText: 'Focus',
+      secondaryText: 'Sample text',
+    },
+  ];
 
   return (
     <Box
@@ -22,7 +43,7 @@ function Company() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: isMobile ? '100vh' : '75%',
+        minHeight: '75%',
         padding: 3,
       }}
     >
@@ -71,38 +92,15 @@ function Company() {
             description={loremIpsum}
           />
           <Grid container spacing={3} mt={3}>
-            <Grid size={{ xs: 12, md: 6 }} mb={2}>
-              <Box display="flex" alignItems="center">
-                <Typography variant="subtitle2">Established</Typography>
-              </Box>
-              <Typography variant="body2" color="textSecondary">
-                2021
-              </Typography>
-            </Grid>
-            <Grid size={{ xs: 12, md: 6 }} mb={2}>
-              <Box display="flex" alignItems="center">
-                <Typography variant="subtitle2">Team</Typography>
-              </Box>
-              <Typography variant="body2" color="textSecondary">
-                Creative Professionals
-              </Typography>
-            </Grid>
-            <Grid size={{ xs: 12, md: 6 }} mb={2}>
-              <Box display="flex" alignItems="center">
-                <Typography variant="subtitle2">Recognition</Typography>
-              </Box>
-              <Typography variant="body2" color="textSecondary">
-                Award-winning designs
-              </Typography>
-            </Grid>
-            <Grid size={{ xs: 12, md: 6 }} mb={2}>
-              <Box display="flex" alignItems="center">
-                <Typography variant="subtitle2">Focus</Typography>
-              </Box>
-              <Typography variant="body2" color="textSecondary">
-                User-centered approach
-              </Typography>
-            </Grid>
+            {companyData.map((data) => (
+              <Grid key={data.primaryText} size={{ xs: 12, md: 6 }} mb={2}>
+                <CardSlot
+                  icon={data.icon}
+                  primaryText={data.primaryText}
+                  secondaryText={data.secondaryText}
+                />
+              </Grid>
+            ))}
           </Grid>
         </Grid>
       </Grid>

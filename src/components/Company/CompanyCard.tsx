@@ -54,10 +54,21 @@ function CompanyCard(props: CompanyCardProps) {
           height={150}
         />
       </CardMedia>
-      <Typography variant="h5" component="div" fontWeight="bold" mb={1}>
+      <Typography
+        textAlign="center"
+        variant="h5"
+        component="div"
+        fontWeight="bold"
+        mb={1}
+      >
         {companyName}
       </Typography>
-      <Typography variant="subtitle2" color="text.secondary" mb={2}>
+      <Typography
+        textAlign="center"
+        variant="subtitle2"
+        color="text.secondary"
+        mb={2}
+      >
         {tagline}
       </Typography>
       <Box

@@ -1,4 +1,4 @@
-import ServiceCard from '@/components/Services/ItemCard';
+import ServiceCard from '@/components/Services/ServiceCard';
 import {
   Box,
   Grid2 as Grid,

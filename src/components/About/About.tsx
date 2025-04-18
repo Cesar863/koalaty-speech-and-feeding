@@ -1,4 +1,4 @@
-import ItemSlot from '@/components/About/ItemSlot';
+import AboutSlot from '@/components/About/AboutSlot';
 import PageHeader from '@/components/PageHeader/PageHeader';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -20,6 +20,24 @@ function About() {
   const description =
     'Charity is a certified speech language pathologist from the Florida department of health. She holds an undergraduate degree in Communication Sciences and Disorders from University of Florida and a Master’s degree in communication sciences and disorders from the University of Central Florida. She also has a Certificate of Clinical Competence (CCC) from the American Speech Language and Hearing Association (ASHA). Prior to starting Koalaty Speech and Feeding Therapy Services LLC, Charity gained experience from her time in a private practice setting, private school settings, and outpatient hospital setting. She always makes sure she puts the needs of her patients first and ensures she is always conducting therapy sessions using evidence based practice.';
 
+  const aboutData = [
+    {
+      icon: EmailIcon,
+      text: 'janedoe@example.com',
+    },
+    {
+      icon: LocationOnIcon,
+      text: 'Lakeland, Florida',
+    },
+    {
+      icon: PersonIcon,
+      text: 'Speech Language Pathologist',
+    },
+    {
+      icon: SchoolIcon,
+      text: "Master's degree, Speech-Language Pathology/Pathologist",
+    },
+  ];
   return (
     <Box
       sx={{
@@ -27,7 +45,7 @@ function About() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: isMobile ? '100vh' : '75%',
+        minHeight: '75%',
         padding: 2,
       }}
     >
@@ -59,6 +77,7 @@ function About() {
               component="img"
               src="../../headshot.JPG"
               sx={{
+                height: isMobile ? '400px' : '100%',
                 width: '100%',
                 borderRadius: '16px',
                 objectFit: 'cover',
@@ -76,21 +95,11 @@ function About() {
             description={description}
           />
           <Grid container spacing={3} mt={3}>
-            <Grid size={{ xs: 12, md: 6 }} mb={2}>
-              <ItemSlot icon={EmailIcon} text="janedoe@example.com" />
-            </Grid>
-            <Grid size={{ xs: 12, md: 6 }} mb={2}>
-              <ItemSlot icon={LocationOnIcon} text="Lakeland, Florida" />
-            </Grid>
-            <Grid size={{ xs: 12, md: 6 }} mb={2}>
-              <ItemSlot icon={PersonIcon} text="Speech Language Pathologist" />
-            </Grid>
-            <Grid size={{ xs: 12, md: 6 }} mb={2}>
-              <ItemSlot
-                icon={SchoolIcon}
-                text="Master's degree, Speech-Language Pathology/Pathologist"
-              />
-            </Grid>
+            {aboutData.map((data) => (
+              <Grid key={data.text} size={{ xs: 12, md: 6 }} mb={2}>
+                <AboutSlot icon={data.icon} text={data.text} />
+              </Grid>
+            ))}
           </Grid>
         </Grid>
       </Grid>
