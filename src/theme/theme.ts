@@ -1,5 +1,20 @@
 import { createTheme } from '@mui/material/styles';
 
+declare module '@mui/material/styles' {
+  interface Theme {
+    glowColors: {
+      yellow: string;
+      green: string;
+    };
+  }
+  interface ThemeOptions {
+    glowColors: {
+      yellow: string;
+      green: string;
+    };
+  }
+}
+
 export const theme = createTheme({
   palette: {
     primary: {
@@ -10,14 +25,18 @@ export const theme = createTheme({
     },
     secondary: {
       main: '#9AA399',
-      light: '#B7BEB2',
+      light: '#CAD1C3',
       dark: '#7F877B',
       contrastText: '#000000',
     },
     background: {
-      default: '#EEF3EC',
+      default: '#F1F4F1',
       paper: '#B4CCA9',
     },
+  },
+  glowColors: {
+    yellow: '#FFFA77',
+    green: '#399E5A',
   },
   typography: {
     h1: {

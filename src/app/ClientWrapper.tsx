@@ -2,7 +2,7 @@
 
 import { theme } from '@/theme/theme';
 import { CacheProvider } from '@emotion/react';
-import { ThemeProvider } from '@mui/material';
+import { Box, ThemeProvider } from '@mui/material';
 import createEmotionCache from '@mui/material-nextjs/v13-pagesRouter/createCache';
 import type React from 'react';
 
@@ -13,7 +13,69 @@ export default function ClientWrapper({
 }: { children: React.ReactNode }) {
   return (
     <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Box
+          sx={{
+            position: 'fixed',
+            width: '100%',
+            height: '100%',
+            top: 0,
+            left: 0,
+            zIndex: -1,
+            overflow: 'hidden',
+          }}
+        >
+          <Box
+            sx={{
+              position: 'absolute',
+              width: 300,
+              height: 300,
+              background: theme.glowColors.yellow,
+              borderRadius: '50%',
+              filter: 'blur(250px)',
+              top: 100,
+              left: 80,
+            }}
+          />
+          <Box
+            sx={{
+              position: 'absolute',
+              width: 400,
+              height: 400,
+              background: theme.glowColors.green,
+              borderRadius: '50%',
+              filter: 'blur(250px)',
+              bottom: 100,
+              left: 50,
+            }}
+          />
+          <Box
+            sx={{
+              position: 'absolute',
+              width: 400,
+              height: 400,
+              background: theme.glowColors.yellow,
+              borderRadius: '50%',
+              filter: 'blur(250px)',
+              bottom: 100,
+              right: 100,
+            }}
+          />
+          <Box
+            sx={{
+              position: 'absolute',
+              width: 300,
+              height: 300,
+              background: theme.glowColors.green,
+              borderRadius: '50%',
+              filter: 'blur(250px)',
+              top: 100,
+              right: 100,
+            }}
+          />
+        </Box>
+        {children}
+      </ThemeProvider>
     </CacheProvider>
   );
 }

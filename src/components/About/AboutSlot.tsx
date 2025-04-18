@@ -20,7 +20,7 @@ function AboutSlot(props: AboutSlotProps) {
       sx={{
         '&:hover': {
           transition: '0.5s',
-          bgcolor: theme.palette.success.light,
+          bgcolor: theme.palette.secondary.light,
           borderRadius: 3,
         },
       }}
