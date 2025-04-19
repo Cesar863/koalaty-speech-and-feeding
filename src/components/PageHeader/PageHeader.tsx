@@ -31,13 +31,11 @@ function PageHeader(props: PageHeaderProps) {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
-    <Stack alignItems={textAlign} gap={isMobile ? 2 : 3}>
+    <Stack alignItems={textAlign} gap={isMobile ? 1 : 2}>
       {bubbleText && (
-        <Card variant="outlined" sx={{ width: 'fit-content', p: 1 }}>
+        <Card variant="outlined" sx={{ width: 'fit-content', p: 0.75 }}>
           <ListItemText sx={{ textAlign: textAlign }}>
-            <Typography variant={isMobile ? 'subtitle1' : 'h6'}>
-              {bubbleText}
-            </Typography>
+            <Typography variant="body1">{bubbleText}</Typography>
           </ListItemText>
         </Card>
       )}
@@ -51,9 +49,7 @@ function PageHeader(props: PageHeaderProps) {
       </ListItemText>
       {description && (
         <ListItemText sx={{ textAlign: textAlign }}>
-          <Typography variant={isMobile ? 'h6' : 'subtitle1'}>
-            {description}
-          </Typography>
+          <Typography variant="body1">{description}</Typography>
         </ListItemText>
       )}
     </Stack>

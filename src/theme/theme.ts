@@ -40,19 +40,15 @@ export const theme = createTheme({
   },
   typography: {
     h1: {
-      fontSize: '5rem',
+      fontSize: '3.75rem',
       letterSpacing: '0.05em',
       fontWeight: 700,
     },
     h2: {
-      fontSize: '3rem',
+      fontSize: '2.25rem',
       fontWeight: 700,
     },
     subtitle1: {
-      fontSize: '1rem',
-      fontWeight: 400,
-    },
-    subtitle2: {
       fontSize: '0.75rem',
       fontWeight: 400,
     },
@@ -81,7 +77,6 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           padding: '12px 24px',
-          fontSize: '1rem',
           borderRadius: '8px',
         },
       },

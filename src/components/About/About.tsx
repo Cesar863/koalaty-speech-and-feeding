@@ -65,7 +65,7 @@ function About() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '75%',
+        minHeight: '80%',
         padding: 2,
       }}
     >
@@ -97,7 +97,7 @@ function About() {
               component="img"
               src="../../headshot.JPG"
               sx={{
-                height: isMobile ? '400px' : '100%',
+                height: isMobile ? '300px' : '100%',
                 width: '100%',
                 borderRadius: '16px',
                 objectFit: 'cover',

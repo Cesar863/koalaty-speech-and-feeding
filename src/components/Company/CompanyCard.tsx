@@ -33,15 +33,14 @@ function CompanyCard(props: CompanyCardProps) {
         flexDirection: 'column',
         alignItems: 'center',
         width: '100%',
-        maxWidth: isMobile ? 'none' : '410px',
-
+        maxWidth: isMobile ? 'none' : '350px',
         gap: 1,
-        p: 5,
+        p: 4,
       }}
     >
       <CardMedia
         sx={{
-          p: 3,
+          p: 1,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

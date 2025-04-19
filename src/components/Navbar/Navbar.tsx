@@ -50,15 +50,15 @@ export const Navbar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
-        <Toolbar disableGutters={isMobile}>
+        <Toolbar disableGutters={isMobile} sx={{ minHeight: '56px' }}>
           <Grid container width="100%" direction="row" spacing={1}>
             {!isMobile && (
               <Grid size={{ md: 4 }}>
                 <IconButton size="large" edge="start" color="inherit">
                   <Image
                     src={LogoImage}
-                    height={56}
-                    width={56}
+                    height={42}
+                    width={42}
                     alt="Logo for Koalaty Speech and Feeding."
                   />
                 </IconButton>
@@ -70,7 +70,7 @@ export const Navbar = () => {
                 variant={isMobile ? 'inherit' : 'h6'}
                 textAlign={isMobile ? 'left' : 'center'}
                 color={theme.palette.background.default}
-                px={2}
+                px={1.5}
               >
                 {`Koalaty Speech and Feeding ${
                   isMobile ? '' : 'Therapy Services'
@@ -102,13 +102,13 @@ export const Navbar = () => {
                     open={open}
                     onClose={toggleDrawer(false)}
                   >
-                    <Box sx={{ width: 150 }} role="presentation">
+                    <Box sx={{ width: 200 }} role="presentation">
                       <Stack spacing={1}>
-                        <Container sx={{ textAlign: 'center', pt: 2 }}>
+                        <Container sx={{ textAlign: 'center', pt: 1.5 }}>
                           <Image
                             src={LogoImage}
-                            height={56}
-                            width={56}
+                            height={42}
+                            width={42}
                             alt="Logo for Koalaty Speech and Feeding."
                           />
                         </Container>
@@ -126,11 +126,11 @@ export const Navbar = () => {
                     flexDirection: 'row',
                     justifyContent: 'flex-end',
                     width: '100%',
-                    gap: '4px',
+                    gap: '3px',
                   }}
                 >
                   {linkItems.map((text) => (
-                    <MenuItem sx={{ p: 1 }} key={text} disableGutters>
+                    <MenuItem sx={{ p: 0.75 }} key={text} disableGutters>
                       {text}
                     </MenuItem>
                   ))}

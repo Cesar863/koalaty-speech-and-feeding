@@ -43,7 +43,7 @@ function Company() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '75%',
+        minHeight: '80%',
         padding: 3,
       }}
     >
