@@ -42,8 +42,7 @@ function Hero() {
         container
         justifyContent="space-around"
         alignItems="center"
-        spacing={5}
-        sx={{ p: 5 }}
+        spacing={4}
       >
         <Grid size={{ xs: 12, md: 8 }}>
           <PageHeader
@@ -57,7 +56,7 @@ function Hero() {
             justifyContent="center"
             alignItems="center"
             flexDirection={isMobile ? 'column' : 'row'}
-            gap={3}
+            gap={2}
             width="100%"
           >
             <Link href={primaryButtonHref}>
@@ -65,9 +64,7 @@ function Hero() {
                 variant="contained"
                 sx={{
                   width: '100%',
-                  py: 2,
-                  minWidth: 200,
-                  px: 3,
+                  minWidth: 150,
                 }}
               >
                 {primaryButtonText}
@@ -78,9 +75,7 @@ function Hero() {
                 variant="outlined"
                 sx={{
                   width: '100%',
-                  py: 2,
-                  minWidth: 200,
-                  px: 3,
+                  minWidth: 150,
                 }}
                 onClick={() => setIsOpen(true)}
               >

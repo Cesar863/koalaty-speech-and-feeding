@@ -16,7 +16,7 @@ function CardSlot(props: CardSlotProps) {
   return (
     <Card
       sx={{
-        p: 3,
+        p: 2,
         display: 'flex',
         alignItems: 'flex-start',
         flexDirection: 'column',
@@ -40,7 +40,7 @@ function CardSlot(props: CardSlotProps) {
         <Icon sx={{ color: theme.palette.success.main }} />
         <Typography variant="subtitle1">{primaryText}</Typography>
       </Stack>
-      <Typography variant="subtitle2" color="textSecondary">
+      <Typography variant="body1" color="textSecondary">
         {secondaryText}
       </Typography>
     </Card>

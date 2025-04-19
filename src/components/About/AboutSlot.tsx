@@ -13,7 +13,7 @@ function AboutSlot(props: AboutSlotProps) {
 
   return (
     <Stack
-      p={1}
+      p={0.5}
       direction="row"
       alignItems="center"
       gap={2}
@@ -28,7 +28,7 @@ function AboutSlot(props: AboutSlotProps) {
       <Avatar sx={{ bgcolor: theme.palette.background.paper }}>
         <Icon color="action" />
       </Avatar>
-      <Typography>{text}</Typography>
+      <Typography variant="body2">{text}</Typography>
     </Stack>
   );
 }

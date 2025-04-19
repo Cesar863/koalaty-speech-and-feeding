@@ -60,7 +60,7 @@ function About() {
       }}
     >
       <Typography
-        variant="h3"
+        variant="h2"
         component="h2"
         gutterBottom
         sx={{
@@ -75,7 +75,7 @@ function About() {
         justifyContent="center"
         alignItems="center"
         spacing={5}
-        sx={{ p: 2, maxWidth: '90%' }}
+        sx={{ p: 2, maxWidth: isMobile ? '90%' : '70%' }}
       >
         {servicesData.map((service) => (
           <Grid key={service.title} size={{ xs: 12, md: 6, xl: 3 }}>

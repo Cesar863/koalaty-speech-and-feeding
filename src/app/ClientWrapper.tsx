@@ -28,23 +28,23 @@ export default function ClientWrapper({
           <Box
             sx={{
               position: 'absolute',
-              width: 300,
-              height: 300,
+              width: 200,
+              height: 200,
               background: theme.glowColors.yellow,
               borderRadius: '50%',
-              filter: 'blur(250px)',
+              filter: 'blur(150px)',
               top: 100,
-              left: 80,
+              left: 50,
             }}
           />
           <Box
             sx={{
               position: 'absolute',
-              width: 400,
-              height: 400,
+              width: 200,
+              height: 200,
               background: theme.glowColors.green,
               borderRadius: '50%',
-              filter: 'blur(250px)',
+              filter: 'blur(150px)',
               bottom: 100,
               left: 50,
             }}
@@ -52,11 +52,11 @@ export default function ClientWrapper({
           <Box
             sx={{
               position: 'absolute',
-              width: 400,
-              height: 400,
+              width: 100,
+              height: 100,
               background: theme.glowColors.yellow,
               borderRadius: '50%',
-              filter: 'blur(250px)',
+              filter: 'blur(150px)',
               bottom: 100,
               right: 100,
             }}
@@ -64,11 +64,11 @@ export default function ClientWrapper({
           <Box
             sx={{
               position: 'absolute',
-              width: 300,
-              height: 300,
+              width: 200,
+              height: 200,
               background: theme.glowColors.green,
               borderRadius: '50%',
-              filter: 'blur(250px)',
+              filter: 'blur(150px)',
               top: 100,
               right: 100,
             }}
