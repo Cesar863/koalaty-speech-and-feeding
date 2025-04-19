@@ -1,3 +1,4 @@
+import { ContactDialog } from '@/components/AlertDialog/ContactDialog';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
@@ -8,6 +9,7 @@ import {
   Drawer,
   Grid2 as Grid,
   IconButton,
+  Link,
   List,
   ListItem,
   ListItemButton,
@@ -25,6 +27,7 @@ import LogoImage from '../../assets/images/mainLogo.png';
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [isContactOpen, setContactOpen] = useState(false);
   const theme = useTheme();
 
   const toggleDrawer = (open: boolean) => () => {
@@ -33,14 +36,37 @@ export const Navbar = () => {
 
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-  const linkItems = ['About', 'Contact', 'Services', 'Resources'];
+  const linkItems = [
+    { linkName: 'About', linkSection: '#about' },
+    { linkName: 'Contact', isModal: true },
+    { linkName: 'Services', linkSection: '#services' },
+    { linkName: 'Resources', linkSection: '#resources' },
+  ];
 
   const MobileDrawerList = (
     <List>
-      {linkItems.map((text) => (
-        <ListItem key={text} disablePadding>
-          <ListItemButton sx={{ textAlign: 'right' }}>
-            <ListItemText primary={text} />
+      {linkItems.map((item) => (
+        <ListItem key={item.linkName} disablePadding>
+          <ListItemButton
+            component="a"
+            href={item.linkSection ?? '#'}
+            sx={{ textAlign: 'right' }}
+            onClick={(e) => {
+              if (item.isModal) {
+                e.preventDefault();
+                setContactOpen(true);
+              }
+              toggleDrawer(false)();
+            }}
+          >
+            <ListItemText
+              slotProps={{
+                primary: {
+                  color: 'white',
+                },
+              }}
+              primary={item.linkName}
+            />
           </ListItemButton>
         </ListItem>
       ))}
@@ -54,7 +80,12 @@ export const Navbar = () => {
           <Grid container width="100%" direction="row" spacing={1}>
             {!isMobile && (
               <Grid size={{ md: 4 }}>
-                <IconButton size="large" edge="start" color="inherit">
+                <IconButton
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  href={'#heroLanding'}
+                >
                   <Image
                     src={LogoImage}
                     height={42}
@@ -66,16 +97,18 @@ export const Navbar = () => {
             )}
 
             <Grid size={{ xs: 11, md: 4 }} alignContent={'center'}>
-              <Typography
-                variant={isMobile ? 'inherit' : 'h6'}
-                textAlign={isMobile ? 'left' : 'center'}
-                color={theme.palette.background.default}
-                px={1.5}
-              >
-                {`Koalaty Speech and Feeding ${
-                  isMobile ? '' : 'Therapy Services'
-                }`}
-              </Typography>
+              <Link href={'#heroLanding'} underline="none">
+                <Typography
+                  variant={isMobile ? 'inherit' : 'h6'}
+                  textAlign={isMobile ? 'left' : 'center'}
+                  color={theme.palette.background.default}
+                  px={1.5}
+                >
+                  {`Koalaty Speech and Feeding ${
+                    isMobile ? '' : 'Therapy Services'
+                  }`}
+                </Typography>
+              </Link>
             </Grid>
 
             <Grid
@@ -101,6 +134,13 @@ export const Navbar = () => {
                     anchor="right"
                     open={open}
                     onClose={toggleDrawer(false)}
+                    slotProps={{
+                      paper: {
+                        sx: {
+                          backgroundColor: '#363636',
+                        },
+                      },
+                    }}
                   >
                     <Box sx={{ width: 200 }} role="presentation">
                       <Stack spacing={1}>
@@ -118,6 +158,11 @@ export const Navbar = () => {
                       </Stack>
                     </Box>
                   </Drawer>
+                  <ContactDialog
+                    open={isContactOpen}
+                    isMobile={isMobile}
+                    onClose={() => setContactOpen(false)}
+                  />
                 </>
               ) : (
                 <List
@@ -129,15 +174,32 @@ export const Navbar = () => {
                     gap: '3px',
                   }}
                 >
-                  {linkItems.map((text) => (
-                    <MenuItem sx={{ p: 0.75 }} key={text} disableGutters>
-                      {text}
+                  {linkItems.map((item) => (
+                    <MenuItem
+                      sx={{ p: 0.75 }}
+                      key={item.linkName}
+                      disableGutters
+                      component="a"
+                      href={item.linkSection ?? '#'}
+                      onClick={(e) => {
+                        if (item.isModal) {
+                          e.preventDefault();
+                          setContactOpen(true);
+                        }
+                      }}
+                    >
+                      {item.linkName}
                     </MenuItem>
                   ))}
                 </List>
               )}
             </Grid>
           </Grid>
+          <ContactDialog
+            open={isContactOpen}
+            isMobile={isMobile}
+            onClose={() => setContactOpen(false)}
+          />
         </Toolbar>
       </AppBar>
     </Box>

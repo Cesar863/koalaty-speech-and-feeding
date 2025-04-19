@@ -7,7 +7,7 @@ import {
   useTheme,
 } from '@mui/material';
 
-function About() {
+function Services() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -48,6 +48,8 @@ function About() {
 
   return (
     <Box
+      id="services"
+      className="anchor-section"
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -91,4 +93,4 @@ function About() {
     </Box>
   );
 }
-export default About;
+export default Services;

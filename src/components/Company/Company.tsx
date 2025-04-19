@@ -38,6 +38,8 @@ function Company() {
 
   return (
     <Box
+      id="company"
+      className="anchor-section"
       sx={{
         display: 'flex',
         flexDirection: 'column',

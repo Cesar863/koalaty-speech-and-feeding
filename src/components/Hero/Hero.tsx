@@ -28,6 +28,7 @@ function Hero() {
 
   return (
     <Box
+      id="heroLanding"
       sx={{
         display: 'flex',
         justifyContent: 'center',
@@ -85,13 +86,11 @@ function Hero() {
           </Stack>
         </Grid>
       </Grid>
-      {isOpen && (
-        <ContactDialog
-          open={isOpen}
-          isMobile={isMobile}
-          onClose={() => setIsOpen(false)}
-        />
-      )}
+      <ContactDialog
+        open={isOpen}
+        isMobile={isMobile}
+        onClose={() => setIsOpen(false)}
+      />
     </Box>
   );
 }

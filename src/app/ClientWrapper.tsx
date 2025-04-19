@@ -2,7 +2,7 @@
 
 import { theme } from '@/theme/theme';
 import { CacheProvider } from '@emotion/react';
-import { Box, ThemeProvider } from '@mui/material';
+import { Box, GlobalStyles, ThemeProvider } from '@mui/material';
 import createEmotionCache from '@mui/material-nextjs/v13-pagesRouter/createCache';
 import type React from 'react';
 
@@ -14,6 +14,16 @@ export default function ClientWrapper({
   return (
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={theme}>
+        <GlobalStyles
+          styles={{
+            html: {
+              scrollBehavior: 'smooth',
+            },
+            '.anchor-section': {
+              scrollMarginTop: '72px',
+            },
+          }}
+        />
         <Box
           sx={{
             position: 'fixed',

@@ -60,6 +60,8 @@ function About() {
   ];
   return (
     <Box
+      id="about"
+      className="anchor-section"
       sx={{
         display: 'flex',
         flexDirection: 'column',

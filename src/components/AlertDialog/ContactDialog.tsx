@@ -1,7 +1,9 @@
+import { useSnackbar } from '@/components/Snackbar/SnackbarContext';
 import CloseIcon from '@mui/icons-material/Close';
 import {
   Box,
   Button,
+  CircularProgress,
   Container,
   Dialog,
   DialogContent,
@@ -31,10 +33,12 @@ export interface SimpleDialogProps extends DialogProps {
 
 export const ContactDialog = (props: SimpleDialogProps) => {
   const { onClose, isMobile, open } = props;
+  const { showSnackbar } = useSnackbar();
 
   const [isFormValid, setIsFormValid] = React.useState(false);
   const [formValues, setFormValues] = React.useState(formFields);
   const [formErrors, setFormErrors] = React.useState(formFields);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   React.useEffect(() => {
     setIsFormValid(
@@ -64,6 +68,7 @@ export const ContactDialog = (props: SimpleDialogProps) => {
   };
 
   const handleSubmit = async () => {
+    setIsSubmitting(true);
     try {
       const response = await apiResponse(
         'https://j4iwz3yhu8.execute-api.us-east-1.amazonaws.com/contact',
@@ -72,10 +77,14 @@ export const ContactDialog = (props: SimpleDialogProps) => {
       );
 
       await response.json();
+      showSnackbar('Message sent successfully!', 'success');
       onClose();
-    } catch (err) {
-      console.error('Error submitting contact form:', err);
-      //TODO: add error handling
+      setFormValues(formFields);
+      setFormErrors(formFields);
+    } catch {
+      showSnackbar('Failed to send message. Please try again.', 'error');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -169,8 +178,13 @@ export const ContactDialog = (props: SimpleDialogProps) => {
           <Divider />
           <Box sx={{ justifyContent: 'center', display: 'flex' }}>
             <Divider />
-            <Button onClick={handleSubmit} fullWidth disabled={!isFormValid}>
-              Submit
+            <Button
+              onClick={handleSubmit}
+              fullWidth
+              disabled={!isFormValid || isSubmitting}
+              startIcon={isSubmitting ? <CircularProgress size={20} /> : null}
+            >
+              {isSubmitting ? 'Sending...' : 'Submit'}
             </Button>
           </Box>
         </Container>

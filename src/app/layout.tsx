@@ -2,6 +2,7 @@
 
 import ClientWrapper from '@/app/ClientWrapper';
 import { Navbar } from '@/components/Navbar/Navbar';
+import { SnackbarProvider } from '@/components/Snackbar/SnackbarContext';
 import { Box, CssBaseline } from '@mui/material';
 import type React from 'react';
 
@@ -15,8 +16,10 @@ export default function RootLayout({
       <body>
         <ClientWrapper>
           <CssBaseline />
-          <Navbar />
-          <Box height="100vh">{children}</Box>
+          <SnackbarProvider>
+            <Navbar />
+            <Box height="100vh">{children}</Box>
+          </SnackbarProvider>
         </ClientWrapper>
       </body>
     </html>
