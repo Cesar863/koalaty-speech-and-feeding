@@ -1,3 +1,4 @@
+import FullScreenSection from '@/app/FullScreenSection';
 import About from '@/components/About/About';
 import Company from '@/components/Company/Company';
 import Hero from '@/components/Hero/Hero';
@@ -8,10 +9,18 @@ function HomePage() {
   return (
     <>
       <SnackbarProvider>
-        <Hero />
-        <Company />
-        <Services />
-        <About />
+        <FullScreenSection id="heroLanding">
+          <Hero />
+        </FullScreenSection>
+        <FullScreenSection id="company">
+          <Company />
+        </FullScreenSection>
+        <FullScreenSection id="services">
+          <Services />
+        </FullScreenSection>
+        <FullScreenSection id="about">
+          <About />
+        </FullScreenSection>
       </SnackbarProvider>
     </>
   );

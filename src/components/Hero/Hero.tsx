@@ -17,36 +17,40 @@ function Hero() {
 
   const title = 'Koalaty Speech and Feeding Therapy Services';
   const subtitle =
-    'Providing “koalaty” and child centered speech and feeding therapy services to Lakeland and\n' +
-    'surrounding areas.';
+    'Providing “koalaty” and child centered speech and feeding therapy services to Lakeland and surrounding areas.';
   const primaryButtonText = 'Contact us';
   const primaryButtonHref = '/';
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const appBarHeight = isMobile ? 56 : 64;
 
   return (
     <Box
       id="heroLanding"
       sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100%',
+        width: '100%',
+        minHeight: `calc(100vh - ${appBarHeight}px)`,
         backgroundImage: `url('../../hero-background.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        px: 0,
       }}
     >
       <Grid
         container
-        justifyContent="space-around"
-        alignItems="center"
         spacing={4}
+        justifyContent="center"
+        alignItems="center"
+        sx={{ px: { xs: 2, md: 6 } }}
       >
         <Grid size={{ xs: 12, md: 8 }}>
           <PageHeader title={title} subtitle={subtitle} />
         </Grid>
+
         <Grid size={{ xs: 12, md: 8 }}>
           <Stack
             justifyContent="center"
@@ -55,7 +59,7 @@ function Hero() {
             gap={2}
             width="100%"
           >
-            <Link href={primaryButtonHref}>
+            <Link href={primaryButtonHref} passHref>
               <Button
                 variant="contained"
                 sx={{
@@ -68,16 +72,15 @@ function Hero() {
               </Button>
             </Link>
           </Stack>
+
           <Stack
             justifyContent="center"
             alignItems="center"
-            flexDirection={isMobile ? 'column' : 'row'}
-            gap={2}
+            mt={4}
             width="100%"
-            marginTop={2}
           >
             <Image
-              src={'https://cdn.koalatyspeechandfeeding.com/jay-logo.PNG'}
+              src="https://cdn.koalatyspeechandfeeding.com/jay-logo.PNG"
               height={isMobile ? 200 : 400}
               width={isMobile ? 200 : 400}
               alt="Logo for Koalaty Speech and Feeding."
@@ -85,6 +88,7 @@ function Hero() {
           </Stack>
         </Grid>
       </Grid>
+
       <ContactDialog
         open={isOpen}
         isMobile={isMobile}
