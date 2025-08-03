@@ -40,7 +40,7 @@ export const Navbar = () => {
     { linkName: 'About', linkSection: '#about' },
     { linkName: 'Contact', isModal: true },
     { linkName: 'Services', linkSection: '#services' },
-    { linkName: 'Resources', linkSection: '#resources' },
+    // { linkName: 'Resources', linkSection: '#resources' },
   ];
 
   const MobileDrawerList = (

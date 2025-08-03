@@ -13,35 +13,172 @@ function Services() {
 
   const servicesData = [
     {
+      title: 'AAC',
+      description: (
+        <ul>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {
+                'Conducting trials with AAC devices to determine which one best fits your child’s needs.'
+              }
+            </Typography>
+          </li>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {
+                'Working closely with an AAC representative to order your child’s device.'
+              }
+            </Typography>
+          </li>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {
+                'Conducting Treatment with the device to assist with carryover in the home and surrounding environments.'
+              }
+            </Typography>
+          </li>
+        </ul>
+      ),
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/aac.jpg',
+      altText: '',
+    },
+    {
+      title: 'Feeding Therapy',
+      description: (
+        <ul>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {
+                'Working with picky eaters to assist with broadening their repertoire of foods.'
+              }
+            </Typography>
+          </li>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {
+                'Building oral motor skills to assist your child with consuming unfamiliar or difficult foods.'
+              }
+            </Typography>
+          </li>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {
+                'Assistance in infant feeding including bottle feeding and introduction of those first foods.'
+              }
+            </Typography>
+          </li>
+        </ul>
+      ),
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/feeding.jpg',
+      altText: '',
+    },
+    {
       title: 'Articulation Therapy',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      imageUrl:
-        'https://images.pexels.com/photos/265125/pexels-photo-265125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      description: (
+        <ul>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {
+                'Conducting formal evaluations to determine what speech sound errors your child is experiencing.'
+              }
+            </Typography>
+          </li>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {
+                'Working closely with the family in speech sessions to ensure functional targets are presented in each session.'
+              }
+            </Typography>
+          </li>
+        </ul>
+      ),
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/articulation.png',
+      altText: '',
+    },
+    {
+      title: 'Fluency/Stuttering',
+      description: (
+        <ul>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {
+                'Conducting formal evaluations to determine the presence of a fluency disorder.'
+              }
+            </Typography>
+          </li>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {
+                "Working closely with families to ensure that fluency strategies are generalized into the child's surrounding environment (School, Home, Community)."
+              }
+            </Typography>
+          </li>
+        </ul>
+      ),
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/fluency.png',
       altText: '',
     },
     {
       title: 'Language Therapy',
-      description:
-        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      imageUrl:
-        'https://images.pexels.com/photos/313690/pexels-photo-313690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      description: (
+        <ul>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {
+                "Conducting formal evaluations to determine your child's strengths and weaknesses in academic and social language contexts."
+              }
+            </Typography>
+          </li>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {
+                'Working closely with families to ensure language strategies are carried out in the Home, School, and Social environments.'
+              }
+            </Typography>
+          </li>
+        </ul>
+      ),
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/language.jpg',
       altText: '',
     },
     {
-      title: 'Fluency Therapy',
-      description:
-        'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-      imageUrl:
-        'https://images.pexels.com/photos/876467/pexels-photo-876467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'In-person visits at home, school or daycare',
+      description: (
+        <ul>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {'VPK SIS Provider'}
+            </Typography>
+          </li>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {'Step Up for Students approved provider'}
+            </Typography>
+          </li>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {'Private Pay'}
+            </Typography>
+          </li>
+        </ul>
+      ),
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/inperson.jpg',
       altText: '',
     },
     {
-      title: 'Voice Therapy',
-      description:
-        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      imageUrl:
-        'https://images.pexels.com/photos/7718713/pexels-photo-7718713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'Speech, Language and Feeding Screenings',
+      description: (
+        <ul>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {
+                'Contact us today to schedule an in person or over the phone screening to determine if your child needs a formal evaluation.'
+              }
+            </Typography>
+          </li>
+        </ul>
+      ),
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/screenings.jpg',
       altText: '',
     },
   ];

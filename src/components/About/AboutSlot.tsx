@@ -1,14 +1,13 @@
-import type { SvgIconComponent } from '@mui/icons-material';
 import { Avatar, Stack, Typography, useTheme } from '@mui/material';
 
 interface AboutSlotProps {
-  icon: SvgIconComponent;
+  imageUrl: string;
   text: string;
+  altText?: string;
 }
 
 function AboutSlot(props: AboutSlotProps) {
-  const { icon, text } = props;
-  const Icon = icon;
+  const { imageUrl, text, altText = '' } = props;
   const theme = useTheme();
 
   return (
@@ -25,9 +24,7 @@ function AboutSlot(props: AboutSlotProps) {
         },
       }}
     >
-      <Avatar sx={{ bgcolor: theme.palette.background.paper }}>
-        <Icon color="action" />
-      </Avatar>
+      <Avatar alt={altText} src={imageUrl} />
       <Typography variant="body2">{text}</Typography>
     </Stack>
   );

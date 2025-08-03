@@ -3,8 +3,6 @@ import CompanyCard from '@/components/Company/CompanyCard';
 import PageHeader from '@/components/PageHeader/PageHeader';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-import GroupsIcon from '@mui/icons-material/Groups';
 import { Box, Grid2 as Grid, useMediaQuery, useTheme } from '@mui/material';
 
 function Company() {
@@ -20,19 +18,9 @@ function Company() {
       secondaryText: '2024',
     },
     {
-      icon: GroupsIcon,
-      primaryText: 'Team',
-      secondaryText: 'Sample text',
-    },
-    {
-      icon: EmojiEventsIcon,
-      primaryText: 'Accolades',
-      secondaryText: 'Sample text',
-    },
-    {
       icon: ContentPasteIcon,
       primaryText: 'Focus',
-      secondaryText: 'Sample text',
+      secondaryText: 'Pediatric Speech Language and Feeding',
     },
   ];
 
@@ -60,51 +48,56 @@ function Company() {
           flexDirection: isMobile ? 'column' : 'row',
         }}
       >
-        <Grid
-          size={{
-            xs: 12,
-            sm: 6,
-            md: 4,
-          }}
-          display="flex"
-          justifyContent="center"
-          order={isMobile ? 0 : 1}
-        >
-          <CompanyCard
-            companyName="Koalaty Speech and Feeding"
-            tagline="Slogan goes here"
-            services={['Articulation', 'Language', 'Fluency', 'Voice']}
-            logoSrc="/logo-icon.png"
-            logoAlt="Koalaty Speech and Feeding logo"
-          />
-        </Grid>
-        <Grid
-          size={{
-            xs: 12,
-            md: 8,
-          }}
-          sx={{ textAlign: isMobile ? 'center' : 'left' }}
-          order={isMobile ? 1 : 0}
-        >
-          <PageHeader
-            h1Props={{ fontSize: isMobile ? '2rem' : '3rem' }}
-            textAlign="start"
-            title="Koalaty Speech and Feeding"
-            subtitle="Slogan goes here"
-            description={description}
-          />
-          <Grid container spacing={3} mt={3}>
-            {companyData.map((data) => (
-              <Grid key={data.primaryText} size={{ xs: 12, md: 6 }} mb={2}>
-                <CardSlot
-                  icon={data.icon}
-                  primaryText={data.primaryText}
-                  secondaryText={data.secondaryText}
-                />
-              </Grid>
-            ))}
+        {isMobile ? (
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 4,
+            }}
+            display="flex"
+            justifyContent="center"
+            order={isMobile ? 0 : 1}
+          >
+            <CompanyCard
+              companyName="Koalaty Speech and Feeding"
+              tagline="Providing “koalaty” and child centered speech and feeding therapy services to Lakeland and
+surrounding areas."
+              services={['Articulation', 'Language', 'Fluency', 'Voice']}
+              logoSrc="/logo-icon.png"
+              logoAlt="Koalaty Speech and Feeding logo"
+            />
           </Grid>
-        </Grid>
+        ) : (
+          <Grid
+            size={{
+              xs: 12,
+              md: 8,
+            }}
+            sx={{ textAlign: isMobile ? 'center' : 'left' }}
+            order={isMobile ? 1 : 0}
+          >
+            <PageHeader
+              h1Props={{ fontSize: isMobile ? '2rem' : '3rem' }}
+              textAlign="start"
+              title="Koalaty Speech and Feeding"
+              subtitle="Providing “koalaty” and child centered speech and feeding therapy services to Lakeland and
+surrounding areas."
+              description={description}
+            />
+            <Grid container spacing={3} mt={3}>
+              {companyData.map((data) => (
+                <Grid key={data.primaryText} size={{ xs: 12, md: 6 }} mb={2}>
+                  <CardSlot
+                    icon={data.icon}
+                    primaryText={data.primaryText}
+                    secondaryText={data.secondaryText}
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
+        )}
       </Grid>
     </Box>
   );

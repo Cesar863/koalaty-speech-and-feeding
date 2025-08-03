@@ -6,10 +6,11 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
+import type { ReactElement } from 'react';
 
 interface ServiceCardProps {
   title: string;
-  description: string;
+  description: ReactElement;
   imageUrl: string;
   altText?: string;
 }
@@ -34,21 +35,22 @@ function ServiceCard(props: ServiceCardProps) {
     >
       <Stack>
         <CardMedia
-          component="img"
-          alt={altText || title}
-          image={imageUrl}
+          component="div"
+          role="img"
+          aria-label={altText}
           sx={{
             aspectRatio: '16 / 9',
             width: '100%',
+            backgroundImage: `url(${imageUrl})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 20%',
           }}
         />
         <CardContent sx={{ p: 2 }}>
           <Typography variant="h6" component="div" fontWeight="bold" mb={0.5}>
             {title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {description}
-          </Typography>
+          {description}
         </CardContent>
       </Stack>
     </Card>
