@@ -63,7 +63,13 @@ function Company() {
               companyName="Koalaty Speech and Feeding"
               tagline="Providing “koalaty” and child centered speech and feeding therapy services to Lakeland and
 surrounding areas."
-              services={['Articulation', 'Language', 'Fluency', 'Voice']}
+              services={[
+                'AAC',
+                'Articulation',
+                'Feeding',
+                'Fluency',
+                'Language',
+              ]}
               logoSrc="/logo-icon.png"
               logoAlt="Koalaty Speech and Feeding logo"
             />
