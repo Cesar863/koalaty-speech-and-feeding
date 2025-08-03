@@ -1,13 +1,5 @@
 import AboutSlot from '@/components/About/AboutSlot';
 import PageHeader from '@/components/PageHeader/PageHeader';
-import EmailIcon from '@mui/icons-material/Email';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
-import ModelTrainingIcon from '@mui/icons-material/ModelTraining';
-import PersonIcon from '@mui/icons-material/Person';
-import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
-import SchoolIcon from '@mui/icons-material/School';
-import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import {
   Box,
   Card,
@@ -26,36 +18,44 @@ function About() {
 
   const aboutData = [
     {
-      icon: EmailIcon,
-      text: 'janedoe@example.com',
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/florida-health.png',
+      text: 'Speech Language Pathologist',
+      altText: '',
     },
     {
-      icon: LocationOnIcon,
-      text: 'Lakeland, Florida',
-    },
-    {
-      icon: PersonIcon,
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/sos.webp',
       text: 'SOS Trained Provider',
+      altText: '',
     },
     {
-      icon: SchoolIcon,
-      text: "Master's degree, Speech-Language Pathology/Pathologist",
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/asha-logo.png',
+      text: 'ASHA Member',
+      altText: '',
     },
     {
-      icon: MenuBookIcon,
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/cpr.jpg',
+      text: 'American Heart Association CPR and AED Training',
+      altText: '',
+    },
+    {
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/simon-says.png',
       text: 'Simon Says: Myofunctional Therapy Trained',
+      altText: '',
     },
     {
-      icon: ModelTrainingIcon,
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/soffi.jpeg',
       text: 'Soffi Trained',
+      altText: '',
     },
     {
-      icon: RecordVoiceOverIcon,
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/piomi.png',
       text: 'PIOMI',
+      altText: '',
     },
     {
-      icon: VerifiedUserIcon,
+      imageUrl: 'https://cdn.koalatyspeechandfeeding.com/vital-stim.jpg',
       text: 'Vital Stim Certified',
+      altText: '',
     },
   ];
   return (
@@ -119,7 +119,11 @@ function About() {
           <Grid container spacing={3} mt={3}>
             {aboutData.map((data) => (
               <Grid key={data.text} size={{ xs: 12, md: 6 }} mb={2}>
-                <AboutSlot icon={data.icon} text={data.text} />
+                <AboutSlot
+                  imageUrl={data.imageUrl}
+                  text={data.text}
+                  altText={data.altText}
+                />
               </Grid>
             ))}
           </Grid>

@@ -6,6 +6,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { ContactDialog } from '../AlertDialog/ContactDialog';
@@ -14,14 +15,12 @@ import PageHeader from '../PageHeader/PageHeader';
 function Hero() {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const bubbleText = 'Introducing Something Amazing';
-  const title = 'Lorem ipsum odor amet';
+  const title = 'Koalaty Speech and Feeding Therapy Services';
   const subtitle =
-    'Lorem ipsum odor amet, consectetuer adipiscing elit. Curabitur eget nulla tortor hac consequat sit pulvinar.';
-  const primaryButtonText = 'Learn More';
-  const secondaryButtonText = 'Contact Us';
+    'Providing “koalaty” and child centered speech and feeding therapy services to Lakeland and\n' +
+    'surrounding areas.';
+  const primaryButtonText = 'Contact us';
   const primaryButtonHref = '/';
-  const secondaryButtonHref = '/';
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -46,11 +45,7 @@ function Hero() {
         spacing={4}
       >
         <Grid size={{ xs: 12, md: 8 }}>
-          <PageHeader
-            bubbleText={bubbleText}
-            title={title}
-            subtitle={subtitle}
-          />
+          <PageHeader title={title} subtitle={subtitle} />
         </Grid>
         <Grid size={{ xs: 12, md: 8 }}>
           <Stack
@@ -67,22 +62,26 @@ function Hero() {
                   width: '100%',
                   minWidth: 150,
                 }}
+                onClick={() => setIsOpen(true)}
               >
                 {primaryButtonText}
               </Button>
             </Link>
-            <Link href={secondaryButtonHref}>
-              <Button
-                variant="outlined"
-                sx={{
-                  width: '100%',
-                  minWidth: 150,
-                }}
-                onClick={() => setIsOpen(true)}
-              >
-                {secondaryButtonText}
-              </Button>
-            </Link>
+          </Stack>
+          <Stack
+            justifyContent="center"
+            alignItems="center"
+            flexDirection={isMobile ? 'column' : 'row'}
+            gap={2}
+            width="100%"
+            marginTop={2}
+          >
+            <Image
+              src={'https://cdn.koalatyspeechandfeeding.com/jay-logo.PNG'}
+              height={isMobile ? 200 : 400}
+              width={isMobile ? 200 : 400}
+              alt="Logo for Koalaty Speech and Feeding."
+            />
           </Stack>
         </Grid>
       </Grid>
