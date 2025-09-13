@@ -1,3 +1,5 @@
+'use client';
+
 import { SnackbarAlert } from '@/components/Snackbar/Snackbar';
 import type React from 'react';
 import { createContext, useContext, useState } from 'react';

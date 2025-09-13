@@ -18,7 +18,7 @@ function Hero() {
   const title = 'Koalaty Speech and Feeding Therapy Services';
   const subtitle =
     'Providing “koalaty” and child centered speech and feeding therapy services to Lakeland and surrounding areas.';
-  const primaryButtonText = 'Contact us';
+  const primaryButtonText = 'Email us';
   const primaryButtonHref = '/';
 
   const theme = useTheme();
@@ -71,6 +71,16 @@ function Hero() {
                 {primaryButtonText}
               </Button>
             </Link>
+
+            <Button
+              variant="outlined"
+              color="primary"
+              component="a"
+              href="tel:+18632250797"
+              sx={{ minWidth: 150 }}
+            >
+              Call Us
+            </Button>
           </Stack>
 
           <Stack
