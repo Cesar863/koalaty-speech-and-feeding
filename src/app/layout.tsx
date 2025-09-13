@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   description: 'Speech and feeding therapy services in Lakeland, FL',
   icons: {
     icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
   },
 };
 
