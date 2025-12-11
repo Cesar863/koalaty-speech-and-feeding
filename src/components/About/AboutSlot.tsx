@@ -25,7 +25,9 @@ function AboutSlot(props: AboutSlotProps) {
       }}
     >
       <Avatar alt={altText} src={imageUrl} />
-      <Typography variant="body2">{text}</Typography>
+      <Typography variant="body2" align="left">
+        {text}
+      </Typography>
     </Stack>
   );
 }

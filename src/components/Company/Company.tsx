@@ -10,7 +10,7 @@ function Company() {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const description =
-    'Koalaty speech and feeding therapy services provides speech, language and feeding services tailored to your family and child’s needs. We focus on child led interactions through play or daily routine interactions to best assist your child to communicate or feel comfortable trying new foods. We also make it a priority that the family also feels comfortable and guided through therapy. We can provide services in the community or in home.';
+    'Koalaty Speech and Feeding Therapy Services provides speech, language and feeding services tailored to your family and child’s needs. We focus on child led interactions through play or daily routine interactions to best assist your child to communicate or feel comfortable trying new foods. We also make it a priority that the family also feels comfortable and guided through therapy. We can provide services in the community or in home.';
   const companyData = [
     {
       icon: BusinessCenterIcon,
@@ -69,6 +69,7 @@ surrounding areas."
                 'Feeding',
                 'Fluency',
                 'Language',
+                'Occupational Therapy',
               ]}
               logoSrc="/logo-icon.png"
               logoAlt="Koalaty Speech and Feeding logo"

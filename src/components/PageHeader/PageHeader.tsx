@@ -12,6 +12,7 @@ export interface PageHeaderProps {
   bubbleText?: string;
   title?: string;
   subtitle?: string;
+  notice?: string;
   description?: string;
   textAlign?: 'start' | 'center';
   h1Props?: TypographyProps;
@@ -22,6 +23,7 @@ function PageHeader(props: PageHeaderProps) {
     bubbleText,
     title,
     subtitle,
+    notice,
     description,
     textAlign = 'center',
     h1Props,
@@ -46,6 +48,9 @@ function PageHeader(props: PageHeaderProps) {
       </ListItemText>
       <ListItemText sx={{ textAlign: textAlign }}>
         <Typography variant={isMobile ? 'h5' : 'h4'}>{subtitle}</Typography>
+      </ListItemText>
+      <ListItemText sx={{ textAlign: textAlign }}>
+        <Typography variant={isMobile ? 'h5' : 'h6'}>{notice}</Typography>
       </ListItemText>
       {description && (
         <ListItemText sx={{ textAlign: textAlign }}>

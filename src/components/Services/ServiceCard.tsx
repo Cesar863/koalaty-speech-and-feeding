@@ -50,7 +50,7 @@ function ServiceCard(props: ServiceCardProps) {
           <Typography variant="h6" component="div" fontWeight="bold" mb={0.5}>
             {title}
           </Typography>
-          {description}
+          <Typography align="left">{description}</Typography>
         </CardContent>
       </Stack>
     </Card>
