@@ -39,9 +39,9 @@ export const Navbar = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const linkItems = [
+    { linkName: 'Services', linkSection: '#services' },
     { linkName: 'About', linkSection: '#about' },
     { linkName: 'Contact', isModal: true },
-    { linkName: 'Services', linkSection: '#services' },
     // { linkName: 'Resources', linkSection: '#resources' },
   ];
 

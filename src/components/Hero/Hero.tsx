@@ -18,6 +18,8 @@ function Hero() {
   const title = 'Koalaty Speech and Feeding Therapy Services';
   const subtitle =
     'Providing “koalaty” and child centered speech and feeding therapy services to Lakeland and surrounding areas.';
+  const notice =
+    'Koalaty Speech and Feeding Therapy Services is excited to announce that it will soon be offering Occupational Therapy in school settings. Contact us to find out more information!';
   const primaryButtonText = 'Email us';
   const primaryButtonHref = '/';
 
@@ -48,7 +50,7 @@ function Hero() {
         sx={{ px: { xs: 2, md: 6 } }}
       >
         <Grid size={{ xs: 12, md: 8 }}>
-          <PageHeader title={title} subtitle={subtitle} />
+          <PageHeader title={title} subtitle={subtitle} notice={notice} />
         </Grid>
 
         <Grid size={{ xs: 12, md: 8 }}>
