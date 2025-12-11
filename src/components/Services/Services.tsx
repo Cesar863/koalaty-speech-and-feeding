@@ -181,6 +181,23 @@ function Services() {
       imageUrl: 'https://cdn.koalatyspeechandfeeding.com/screenings.jpg',
       altText: '',
     },
+    {
+      title: 'Occupational Therapy',
+      description: (
+        <ul>
+          <li>
+            <Typography variant="body2" color="text.secondary">
+              {
+                'Koalaty Speech and Feeding Therapy Services is excited to announce that it will soon be offering Occupational Therapy in school settings. Contact us to find out more information!'
+              }
+            </Typography>
+          </li>
+        </ul>
+      ),
+      imageUrl:
+        'https://cdn.koalatyspeechandfeeding.com/occupational-therapy.png',
+      altText: '',
+    },
   ];
 
   return (
