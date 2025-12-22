@@ -24,6 +24,7 @@ import {
   useTheme,
 } from '@mui/material';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import LogoImage from '../../assets/images/mainLogo.png';
 
@@ -31,18 +32,20 @@ export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isContactOpen, setContactOpen] = useState(false);
   const theme = useTheme();
+  const pathName = usePathname();
 
   const toggleDrawer = (open: boolean) => () => {
     setOpen(open);
   };
 
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isLegal =
+    pathName === '/privacy-policy' || pathName === '/terms-and-conditions';
 
   const linkItems = [
     { linkName: 'Services', linkSection: '#services' },
     { linkName: 'About', linkSection: '#about' },
     { linkName: 'Contact', isModal: true },
-    // { linkName: 'Resources', linkSection: '#resources' },
   ];
 
   const MobileDrawerList = (
@@ -86,7 +89,7 @@ export const Navbar = () => {
                   size="large"
                   edge="start"
                   color="inherit"
-                  href={'#heroLanding'}
+                  href={'/'}
                 >
                   <Image
                     src={LogoImage}
@@ -99,7 +102,7 @@ export const Navbar = () => {
             )}
 
             <Grid size={{ xs: 11, md: 4 }} alignContent={'center'}>
-              <Link href={'#heroLanding'} underline="none">
+              <Link href={'/'} underline="none">
                 <Typography
                   variant={isMobile ? 'inherit' : 'h6'}
                   textAlign={isMobile ? 'left' : 'center'}
@@ -121,7 +124,7 @@ export const Navbar = () => {
               display="flex"
               justifyContent="flex-end"
             >
-              {isMobile ? (
+              {isMobile && !isLegal && (
                 <>
                   <Button
                     onClick={toggleDrawer(true)}
@@ -166,7 +169,8 @@ export const Navbar = () => {
                     onClose={() => setContactOpen(false)}
                   />
                 </>
-              ) : (
+              )}
+              {!isMobile && !isLegal && (
                 <List
                   sx={{
                     display: 'flex',
