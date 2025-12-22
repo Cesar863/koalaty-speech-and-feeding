@@ -3,7 +3,7 @@
 import { SnackbarProvider } from '@/components/Snackbar/SnackbarContext';
 import { theme } from '@/theme/theme';
 import { CacheProvider } from '@emotion/react';
-import { Box, GlobalStyles, ThemeProvider } from '@mui/material';
+import { Box, CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material';
 import createEmotionCache from '@mui/material-nextjs/v13-pagesRouter/createCache';
 import type React from 'react';
 
@@ -13,19 +13,16 @@ export default function ClientWrapper({
   children,
 }: { children: React.ReactNode }) {
   return (
-    <SnackbarProvider>
-      <CacheProvider value={emotionCache}>
-        <ThemeProvider theme={theme}>
-          <GlobalStyles
-            styles={{
-              html: {
-                scrollBehavior: 'smooth',
-              },
-              '.anchor-section': {
-                scrollMarginTop: '72px',
-              },
-            }}
-          />
+    <CacheProvider value={emotionCache}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <GlobalStyles
+          styles={{
+            html: { scrollBehavior: 'smooth' },
+            '.anchor-section': { scrollMarginTop: '72px' },
+          }}
+        />
+        <SnackbarProvider>
           <Box
             sx={{
               position: 'fixed',
@@ -87,8 +84,8 @@ export default function ClientWrapper({
             />
           </Box>
           {children}
-        </ThemeProvider>
-      </CacheProvider>
-    </SnackbarProvider>
+        </SnackbarProvider>
+      </ThemeProvider>
+    </CacheProvider>
   );
 }

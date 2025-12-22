@@ -27,8 +27,8 @@ export default function PrivacyPolicyPage() {
           {/* Intro */}
           <Typography variant="body1">
             <strong>Koalaty Speech and Feeding Therapy Services LLC</strong>{' '}
-            ("we," "our," or "us") is committed to protecting your privacy. This
-            Privacy Policy outlines how we collect, use, and protect your
+            {`("we," "our," or "us")`} is committed to protecting your privacy.
+            This Privacy Policy outlines how we collect, use, and protect your
             information when you visit{' '}
             <strong>koalatyspeechandfeeding.com</strong>.
           </Typography>
