@@ -7,7 +7,6 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import Image from 'next/image';
 
 interface CompanyCardProps {
   companyName: string;
@@ -46,7 +45,7 @@ function CompanyCard(props: CompanyCardProps) {
           justifyContent: 'center',
         }}
       >
-        <Image
+        <img
           src={logoSrc}
           alt={logoAlt || companyName}
           width={150}
@@ -54,19 +53,16 @@ function CompanyCard(props: CompanyCardProps) {
         />
       </CardMedia>
       <Typography
-        textAlign="center"
         variant="h5"
         component="div"
-        fontWeight="bold"
-        mb={1}
+        sx={{ textAlign: 'center', mb: 1, fontWeight: 'bold' }}
       >
         {companyName}
       </Typography>
       <Typography
-        textAlign="center"
         variant="subtitle2"
         color="text.secondary"
-        mb={2}
+        sx={{ textAlign: 'center', mb: 2 }}
       >
         {tagline}
       </Typography>

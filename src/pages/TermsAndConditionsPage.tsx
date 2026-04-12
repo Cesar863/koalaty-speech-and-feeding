@@ -1,7 +1,5 @@
-'use client';
-
 import { Container, Divider, Stack, Typography } from '@mui/material';
-import FullScreenSection from '../FullScreenSection';
+import FullScreenSection from '../components/FullScreenSection';
 
 export default function TermsAndConditionsPage() {
   return (
@@ -10,7 +8,7 @@ export default function TermsAndConditionsPage() {
         <Stack spacing={4}>
           {/* Header */}
           <Stack spacing={1}>
-            <Typography variant="h4" component="h1" fontWeight={600}>
+            <Typography variant="h4" component="h1" sx={{ fontWeight: 600 }}>
               Website Terms and Conditions
             </Typography>
 
@@ -117,7 +115,7 @@ export default function TermsAndConditionsPage() {
               contact us at:
             </Typography>
 
-            <Typography variant="body1" fontWeight={500}>
+            <Typography variant="body1" sx={{ fontWeight: 500 }}>
               charity.bobo@koalatyspeechandfeeding.com
             </Typography>
 
