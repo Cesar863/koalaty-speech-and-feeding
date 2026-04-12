@@ -1,9 +1,9 @@
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import ContentPasteIcon from '@mui/icons-material/ContentPaste';
+import { Box, Grid, useMediaQuery, useTheme } from '@mui/material';
 import CardSlot from '@/components/Company/CardSlot';
 import CompanyCard from '@/components/Company/CompanyCard';
 import PageHeader from '@/components/PageHeader/PageHeader';
-import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
-import ContentPasteIcon from '@mui/icons-material/ContentPaste';
-import { Box, Grid2 as Grid, useMediaQuery, useTheme } from '@mui/material';
 
 function Company() {
   const theme = useTheme();
@@ -39,13 +39,13 @@ function Company() {
     >
       <Grid
         container
-        justifyContent="center"
-        alignItems="center"
         spacing={isMobile ? 3 : 5}
         sx={{
           maxWidth: 'xl',
           width: '100%',
           flexDirection: isMobile ? 'column' : 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         {isMobile ? (
@@ -55,9 +55,11 @@ function Company() {
               sm: 6,
               md: 4,
             }}
-            display="flex"
-            justifyContent="center"
-            order={isMobile ? 0 : 1}
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              order: { xs: 0, md: 1 },
+            }}
           >
             <CompanyCard
               companyName="Koalaty Speech and Feeding"
@@ -81,20 +83,26 @@ surrounding areas."
               xs: 12,
               md: 8,
             }}
-            sx={{ textAlign: isMobile ? 'center' : 'left' }}
-            order={isMobile ? 1 : 0}
+            sx={{
+              textAlign: isMobile ? 'center' : 'left',
+              order: isMobile ? 1 : 0,
+            }}
           >
             <PageHeader
-              h1Props={{ fontSize: isMobile ? '2rem' : '3rem' }}
+              h1Props={{ sx: { fontSize: isMobile ? '2rem' : '3rem' } }}
               textAlign="start"
               title="Koalaty Speech and Feeding"
               subtitle="Providing “koalaty” and child centered speech and feeding therapy services to Lakeland and
 surrounding areas."
               description={description}
             />
-            <Grid container spacing={3} mt={3}>
+            <Grid container spacing={3} sx={{ mt: 3 }}>
               {companyData.map((data) => (
-                <Grid key={data.primaryText} size={{ xs: 12, md: 6 }} mb={2}>
+                <Grid
+                  key={data.primaryText}
+                  size={{ xs: 12, md: 6 }}
+                  sx={{ mb: 2 }}
+                >
                   <CardSlot
                     icon={data.icon}
                     primaryText={data.primaryText}

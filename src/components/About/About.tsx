@@ -1,13 +1,13 @@
-import AboutSlot from '@/components/About/AboutSlot';
-import PageHeader from '@/components/PageHeader/PageHeader';
 import {
   Box,
   Card,
   CardMedia,
-  Grid2 as Grid,
+  Grid,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
+import AboutSlot from '@/components/About/AboutSlot';
+import PageHeader from '@/components/PageHeader/PageHeader';
 
 function About() {
   const theme = useTheme();
@@ -73,18 +73,17 @@ function About() {
     >
       <Grid
         container
-        justifyContent="center"
-        alignItems="flex-start"
         spacing={isMobile ? 3 : 5}
         sx={{
+          justifyContent: 'center',
+          alignItems: 'flex-start',
           maxWidth: 'xl',
           width: '100%',
         }}
       >
         <Grid
           size={{ xs: 12, sm: 6, md: 4 }}
-          display="flex"
-          justifyContent="center"
+          sx={{ display: 'flex', justifyContent: 'center' }}
         >
           <Card
             sx={{
@@ -110,15 +109,19 @@ function About() {
         </Grid>
         <Grid size={{ xs: 12, md: 8 }}>
           <PageHeader
-            h1Props={{ fontSize: isMobile ? '2rem' : '3rem' }}
+            h1Props={{ sx: { fontSize: isMobile ? '2rem' : '3rem' } }}
             textAlign="start"
             title="Charity Bobo"
             subtitle="Owner, Speech Language Pathologist M.A., CCC-SLP"
             description={description}
           />
-          <Grid container spacing={3} mt={3}>
+          <Grid container spacing={3} sx={{ marginTop: 3 }}>
             {aboutData.map((data) => (
-              <Grid key={data.text} size={{ xs: 12, md: 6 }} mb={2}>
+              <Grid
+                key={data.text}
+                size={{ xs: 12, md: 6 }}
+                sx={{ marginBottom: 2 }}
+              >
                 <AboutSlot
                   imageUrl={data.imageUrl}
                   text={data.text}

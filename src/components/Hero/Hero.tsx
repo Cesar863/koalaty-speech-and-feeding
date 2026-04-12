@@ -1,14 +1,14 @@
 import {
   Box,
   Button,
-  Grid2 as Grid,
+  Grid,
   Stack,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import Image from 'next/image';
-import Link from 'next/link';
+
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ContactDialog } from '../AlertDialog/ContactDialog';
 import PageHeader from '../PageHeader/PageHeader';
 
@@ -45,9 +45,11 @@ function Hero() {
       <Grid
         container
         spacing={4}
-        justifyContent="center"
-        alignItems="center"
-        sx={{ px: { xs: 2, md: 6 } }}
+        sx={{
+          px: { xs: 2, md: 6 },
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
       >
         <Grid size={{ xs: 12, md: 8 }}>
           <PageHeader title={title} subtitle={subtitle} notice={notice} />
@@ -55,13 +57,15 @@ function Hero() {
 
         <Grid size={{ xs: 12, md: 8 }}>
           <Stack
-            justifyContent="center"
-            alignItems="center"
-            flexDirection={isMobile ? 'column' : 'row'}
-            gap={2}
-            width="100%"
+            sx={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexDirection: isMobile ? 'column' : 'row',
+              gap: 2,
+              width: '100%',
+            }}
           >
-            <Link href={primaryButtonHref} passHref>
+            <Link to={primaryButtonHref}>
               <Button
                 variant="contained"
                 sx={{
@@ -86,12 +90,14 @@ function Hero() {
           </Stack>
 
           <Stack
-            justifyContent="center"
-            alignItems="center"
-            mt={4}
-            width="100%"
+            sx={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              mt: 4,
+              width: '100%',
+            }}
           >
-            <Image
+            <img
               src="https://cdn.koalatyspeechandfeeding.com/jay-logo.PNG"
               height={isMobile ? 200 : 400}
               width={isMobile ? 200 : 400}

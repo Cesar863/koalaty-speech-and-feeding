@@ -1,8 +1,6 @@
-'use client';
-
-import { SnackbarAlert } from '@/components/Snackbar/Snackbar';
 import type React from 'react';
 import { createContext, useContext, useState } from 'react';
+import { SnackbarAlert } from '@/components/Snackbar/Snackbar';
 
 type SnackbarSeverity = 'success' | 'error' | 'info' | 'warning';
 
@@ -24,7 +22,9 @@ export const useSnackbar = () => {
 
 export const SnackbarProvider = ({
   children,
-}: { children: React.ReactNode }) => {
+}: {
+  children: React.ReactNode;
+}) => {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState('');
   const [severity, setSeverity] = useState<SnackbarSeverity>('success');

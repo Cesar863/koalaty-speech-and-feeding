@@ -1,6 +1,3 @@
-'use client';
-
-import { ContactDialog } from '@/components/AlertDialog/ContactDialog';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
@@ -9,30 +6,29 @@ import {
   Container,
   Divider,
   Drawer,
-  Grid2 as Grid,
+  Grid,
   IconButton,
   Link,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
-  MenuItem,
   Stack,
   Toolbar,
   Typography,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { ContactDialog } from '@/components/AlertDialog/ContactDialog';
 import LogoImage from '../../assets/images/mainLogo.png';
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isContactOpen, setContactOpen] = useState(false);
   const theme = useTheme();
-  const pathName = usePathname();
+  const { pathname: pathName } = useLocation();
 
   const toggleDrawer = (open: boolean) => () => {
     setOpen(open);
@@ -55,7 +51,6 @@ export const Navbar = () => {
           <ListItemButton
             component="a"
             href={item.linkSection ?? '#'}
-            sx={{ textAlign: 'right' }}
             onClick={(e) => {
               if (item.isModal) {
                 e.preventDefault();
@@ -82,16 +77,17 @@ export const Navbar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
         <Toolbar disableGutters={isMobile} sx={{ minHeight: '56px' }}>
-          <Grid container width="100%" direction="row" spacing={1}>
+          <Grid container sx={{ width: '100%' }} direction="row" spacing={1}>
             {!isMobile && (
               <Grid size={{ md: 4 }}>
                 <IconButton
                   size="large"
                   edge="start"
                   color="inherit"
-                  href={'/'}
+                  component={RouterLink}
+                  to={'/'}
                 >
-                  <Image
+                  <img
                     src={LogoImage}
                     height={42}
                     width={42}
@@ -101,13 +97,15 @@ export const Navbar = () => {
               </Grid>
             )}
 
-            <Grid size={{ xs: 11, md: 4 }} alignContent={'center'}>
-              <Link href={'/'} underline="none">
+            <Grid size={{ xs: 11, md: 4 }} sx={{ alignContent: 'center' }}>
+              <Link component={RouterLink} to={'/'} underline="none">
                 <Typography
                   variant={isMobile ? 'inherit' : 'h6'}
-                  textAlign={isMobile ? 'left' : 'center'}
-                  color={theme.palette.background.default}
-                  px={1.5}
+                  sx={{
+                    textAlign: isMobile ? 'left' : 'center',
+                    color: theme.palette.background.default,
+                    px: 1.5,
+                  }}
                 >
                   {`Koalaty Speech and Feeding ${
                     isMobile ? '' : 'Therapy Services'
@@ -118,11 +116,13 @@ export const Navbar = () => {
 
             <Grid
               size={{ xs: 1, md: 4 }}
-              textAlign="right"
-              alignItems="center"
-              flexGrow={1}
-              display="flex"
-              justifyContent="flex-end"
+              sx={{
+                textAlign: 'right',
+                alignItems: 'center',
+                flexGrow: 1,
+                display: 'flex',
+                justifyContent: 'flex-end',
+              }}
             >
               {isMobile && !isLegal && (
                 <>
@@ -150,7 +150,7 @@ export const Navbar = () => {
                     <Box sx={{ width: 200 }} role="presentation">
                       <Stack spacing={1}>
                         <Container sx={{ textAlign: 'center', pt: 1.5 }}>
-                          <Image
+                          <img
                             src={LogoImage}
                             height={42}
                             width={42}
@@ -176,15 +176,13 @@ export const Navbar = () => {
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'flex-end',
-                    width: '100%',
-                    gap: '3px',
+                    gap: 4,
                   }}
                 >
                   {linkItems.map((item) => (
-                    <MenuItem
-                      sx={{ p: 0.75 }}
+                    <ListItemButton
+                      sx={{ p: 0.75, width: 'auto', borderRadius: 1 }}
                       key={item.linkName}
-                      disableGutters
                       component="a"
                       href={item.linkSection ?? '#'}
                       onClick={(e) => {
@@ -195,7 +193,7 @@ export const Navbar = () => {
                       }}
                     >
                       {item.linkName}
-                    </MenuItem>
+                    </ListItemButton>
                   ))}
                 </List>
               )}
