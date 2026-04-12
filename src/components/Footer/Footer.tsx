@@ -1,5 +1,5 @@
 import { Container, Typography } from '@mui/material';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -10,9 +10,9 @@ function Footer() {
         textAlign: 'center',
       }}
     >
-      <Typography textAlign={'center'} sx={{ mt: 2 }}>
-        <Link href="/privacy-policy">Privacy Policy</Link> |{' '}
-        <Link href="/terms-and-conditions">Terms and Conditions</Link>.
+      <Typography sx={{ textAlign: 'center', mt: 2 }}>
+        <Link to="/privacy-policy">Privacy Policy</Link> |{' '}
+        <Link to="/terms-and-conditions">Terms and Conditions</Link>.
       </Typography>
     </Container>
   );

@@ -1,7 +1,7 @@
-import FullScreenSection from '@/app/FullScreenSection';
 import About from '@/components/About/About';
 import Company from '@/components/Company/Company';
 import Footer from '@/components/Footer/Footer';
+import FullScreenSection from '@/components/FullScreenSection';
 import Hero from '@/components/Hero/Hero';
 import Services from '@/components/Services/Services';
 

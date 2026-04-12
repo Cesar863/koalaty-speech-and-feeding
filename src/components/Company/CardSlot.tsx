@@ -31,11 +31,13 @@ function CardSlot(props: CardSlotProps) {
       }}
     >
       <Stack
-        display="flex"
-        flexDirection="row"
-        alignItems="center"
-        mb={2}
-        gap={1}
+        sx={{
+          alignItems: 'center',
+          mb: 2,
+          gap: 1,
+          display: 'flex',
+          flexDirection: 'row',
+        }}
       >
         <Icon sx={{ color: theme.palette.success.main }} />
         <Typography variant="subtitle1">{primaryText}</Typography>

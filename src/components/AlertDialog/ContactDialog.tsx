@@ -1,4 +1,3 @@
-import { useSnackbar } from '@/components/Snackbar/SnackbarContext';
 import CloseIcon from '@mui/icons-material/Close';
 import {
   Box,
@@ -16,6 +15,7 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
+import { useSnackbar } from '@/components/Snackbar/SnackbarContext';
 import {
   apiResponse,
   formFields,

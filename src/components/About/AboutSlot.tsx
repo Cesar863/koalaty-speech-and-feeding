@@ -12,20 +12,20 @@ function AboutSlot(props: AboutSlotProps) {
 
   return (
     <Stack
-      p={0.5}
       direction="row"
-      alignItems="center"
-      gap={2}
       sx={{
+        alignItems: 'center',
         '&:hover': {
           transition: '0.5s',
           bgcolor: theme.palette.secondary.light,
           borderRadius: 3,
         },
+        gap: 0.5,
+        padding: 0.5,
       }}
     >
       <Avatar alt={altText} src={imageUrl} />
-      <Typography variant="body2" align="left">
+      <Typography variant="body2" align="left" sx={{ pl: 1 }}>
         {text}
       </Typography>
     </Stack>

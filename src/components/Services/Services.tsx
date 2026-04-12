@@ -1,11 +1,5 @@
+import { Box, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 import ServiceCard from '@/components/Services/ServiceCard';
-import {
-  Box,
-  Grid2 as Grid,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
 
 function Services() {
   const theme = useTheme();
@@ -228,10 +222,13 @@ function Services() {
       </Typography>
       <Grid
         container
-        justifyContent="center"
-        alignItems="center"
         spacing={5}
-        sx={{ p: 2, maxWidth: isMobile ? '90%' : '70%' }}
+        sx={{
+          p: 2,
+          maxWidth: isMobile ? '90%' : '70%',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
       >
         {servicesData.map((service) => (
           <Grid key={service.title} size={{ xs: 12, md: 6, xl: 3 }}>

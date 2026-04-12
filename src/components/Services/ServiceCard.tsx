@@ -47,10 +47,16 @@ function ServiceCard(props: ServiceCardProps) {
           }}
         />
         <CardContent sx={{ p: 2 }}>
-          <Typography variant="h6" component="div" fontWeight="bold" mb={0.5}>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ fontWeight: 'bold', mb: 0.5 }}
+          >
             {title}
           </Typography>
-          <Typography align="left">{description}</Typography>
+          <Typography component="div" align="left">
+            {description}
+          </Typography>
         </CardContent>
       </Stack>
     </Card>
