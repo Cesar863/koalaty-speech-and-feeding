@@ -39,6 +39,10 @@ export const ContactDialog = (props: SimpleDialogProps) => {
   const [formValues, setFormValues] = React.useState(formFields);
   const [formErrors, setFormErrors] = React.useState(formFields);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [focused, setFocused] = React.useState({
+    email: false,
+    phoneNumber: false,
+  });
 
   React.useEffect(() => {
     setIsFormValid(
@@ -64,7 +68,17 @@ export const ContactDialog = (props: SimpleDialogProps) => {
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    if (name === 'email' || name === 'phoneNumber') {
+      setFocused((prev) => ({ ...prev, [name]: false }));
+    }
     validateField(name, value, setFormErrors);
+  };
+
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    const { name } = e.target;
+    if (name === 'email' || name === 'phoneNumber') {
+      setFocused((prev) => ({ ...prev, [name]: true }));
+    }
   };
 
   const handleSubmit = async () => {
@@ -135,8 +149,9 @@ export const ContactDialog = (props: SimpleDialogProps) => {
                 value={formValues.phoneNumber}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={!!formErrors.phoneNumber}
-                helperText={formErrors.phoneNumber}
+                onFocus={handleFocus}
+                error={!focused.phoneNumber && !!formErrors.phoneNumber}
+                helperText={!focused.phoneNumber ? formErrors.phoneNumber : ''}
               />
               <TextField
                 fullWidth
@@ -146,8 +161,9 @@ export const ContactDialog = (props: SimpleDialogProps) => {
                 value={formValues.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={!!formErrors.email}
-                helperText={formErrors.email}
+                onFocus={handleFocus}
+                error={!focused.email && !!formErrors.email}
+                helperText={!focused.email ? formErrors.email : ''}
               />
               <TextField
                 fullWidth
