@@ -60,11 +60,7 @@ export const Navbar = () => {
             }}
           >
             <ListItemText
-              slotProps={{
-                primary: {
-                  color: 'white',
-                },
-              }}
+              sx={{ color: 'white', textAlign: 'center' }}
               primary={item.linkName}
             />
           </ListItemButton>
